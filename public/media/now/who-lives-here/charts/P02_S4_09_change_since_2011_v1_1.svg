@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
 <title id="title">What changed since 2011</title>
 <desc id="desc">Four shared-scale dot plots compare district percentage-point changes with Budapest from 2011 to 2022.</desc>
-<style>text{font-family:Arial,"Helvetica Neue",sans-serif;font-variant-numeric:tabular-nums lining-nums}.axis{shape-rendering:crispEdges}</style>
-<rect x="0" y="0" width="1600" height="1000" fill="#F4F1E9"/>
+<style>text{font-family:"Courier New",Courier,monospace;font-variant-numeric:tabular-nums lining-nums}svg>text:nth-of-type(1),svg>text:nth-of-type(2){font-family:Georgia,"Times New Roman",serif}.axis{shape-rendering:crispEdges}</style>
+<rect x="0" y="0" width="1600" height="1000" fill="#F1EADC"/>
 <text x="80" y="78" font-size="44" fill="#263238" text-anchor="start" font-weight="500">What changed since 2011</text>
 <text x="80" y="116" font-size="23" fill="#687377" text-anchor="start" font-weight="400">Percentage point change from 2011 to 2022, on one shared scale</text>
 <rect x="1350" y="52" width="170" height="44" fill="#EEE9DF" stroke="#D7D2C7" stroke-width="1" rx="22"/>

@@ -30,7 +30,7 @@ color:var(--muted)}
 text-transform:uppercase;color:var(--muted)}
 .rail-item{display:flex;gap:11px;width:100%;text-align:left;background:none;border:0;cursor:pointer;
 padding:9px 20px 9px 17px;border-left:3px solid transparent;color:var(--muted);
-font:16px/1.35 Georgia,serif}
+font:12px/1.35 "Courier New",monospace;letter-spacing:.015em}
 .rail-item:hover{color:var(--ink-dark);background:rgba(25,63,65,.04)}
 .rail-num{font:700 10px/1.7 "Courier New",monospace;letter-spacing:.06em;color:var(--muted);flex:0 0 auto}
 .rail-item.is-on{color:var(--ink-dark);border-left-color:var(--terracotta);background:rgba(25,63,65,.045)}
@@ -44,8 +44,9 @@ min-height:0}
 .panel.panel-full{grid-template-columns:1fr}
 
 /* middle */
-.mid{min-height:0;overflow-y:auto;padding:clamp(14px,1.8vw,26px);
+.mid{min-height:0;overflow-y:auto;scrollbar-width:none;padding:clamp(14px,1.8vw,26px);
 display:flex;flex-direction:column;flex:1 1 auto}
+.mid::-webkit-scrollbar{display:none}
 .midwrap{min-height:0;position:relative;display:flex;flex-direction:column}
 .plate{margin:auto 0}
 .plate img{display:block;width:100%;height:auto;max-height:calc(100vh - 300px);object-fit:contain;

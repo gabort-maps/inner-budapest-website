@@ -68,6 +68,7 @@ export default function HistoryAndUrbanDevelopmentPage() {
             <div className="history-section-copy">
               <h2 id={`${opening.id}-title`}>{opening.title}</h2>
               {opening.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              {opening.imageSlot && <HistoryImage {...opening.imageSlot} />}
             </div>
           </section>
 

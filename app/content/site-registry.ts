@@ -26,7 +26,7 @@ export const nowCards: ChapterCard[] = [
   { id: "the-place", title: "The place", description: "The six-square-kilometre polygon at the centre of this neighbourhood study." },
   { id: "the-streets", title: "The streets", description: "How the street network divides space between movement, parking and everyday life." },
   { id: "what-is-close", title: "What is close", description: "The daily destinations residents can already reach within a short walk." },
-  { id: "who-lives-here", title: "Who lives here", description: "A portrait of the people, households and generations that share the neighbourhood.", href: "/now/who-lives-here", image: "/media/now/who-lives-here/charts/P02_S4_01_age_tree_v1_1.svg" },
+  { id: "who-lives-here", title: "Who lives here", description: "A portrait of the people, households and generations that share the neighbourhood.", href: "/now/who-lives-here", image: "/media/now/who-lives-here/wholiveshereagepyramidthumbnail.webp" },
   { id: "what-replaces-it", title: "What replaces it", description: "The mobility choices that can replace private parking without reducing access." },
   { id: "evidence-maps", title: "Evidence maps", description: "Nine layers of proximity, access and parking, drawn on one measured street network.", href: "/now/evidence-maps", image: "/media/evidence-maps-polygon-thumbnail.webp" },
   { id: "can-a-family-afford-to-arrive", title: "Can a family afford to arrive?", description: "A practical test of whether changing mobility remains fair and financially realistic." },

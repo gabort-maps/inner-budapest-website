@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Older residents per child</title><desc id="desc">A lollipop chart compares residents aged 65 and over per child under 15 across study area segments.</desc>
+<style>text{font-family:Arial,"Helvetica Neue",sans-serif;font-variant-numeric:tabular-nums lining-nums}.axis{shape-rendering:crispEdges}</style>
+<rect x="0" y="0" width="1600" height="1000" fill="#F4F1E9" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="80" y="78" font-size="44" fill="#263238" text-anchor="start" font-weight="500" >Older residents per child</text>
+<text x="80" y="116" font-size="23" fill="#687377" text-anchor="start" font-weight="400" >The study area’s generational balance sits far above Budapest</text>
+<rect x="1350" y="52" width="170" height="44" fill="#EEE9DF" stroke="#D7D2C7" stroke-width="1" rx="22" opacity="1"/>
+<text x="1435" y="82" font-size="16" fill="#263238" text-anchor="middle" font-weight="500" letter-spacing="1.4">MODELLED</text>
+<line x1="927.1333333333333" y1="165" x2="927.1333333333333" y2="760" stroke="#D7D2C7" stroke-width="9" opacity="1"/>
+<text x="927.1333333333333" y="150" font-size="18" fill="#263238" text-anchor="middle" font-weight="500" >Budapest 1.69</text>
+<text x="305" y="223" font-size="22" fill="#263238" text-anchor="end" font-weight="500" >Polygon, all</text>
+<line x1="330" y1="215" x2="1163.8666666666666" y2="215" stroke="#244C51" stroke-width="6" opacity="1"/>
+<circle cx="1163.8666666666666" cy="215" r="14" fill="#244C51" stroke="none" stroke-width="0" opacity="1"/>
+<text x="1188.8666666666666" y="223" font-size="20" fill="#263238" text-anchor="start" font-weight="500" >2.36</text>
+<line x1="110" y1="251" x2="1490" y2="251" stroke="#D7D2C7" stroke-width="1" opacity="1"/>
+<text x="305" y="299" font-size="19" fill="#263238" text-anchor="end" font-weight="400" >V, inside</text>
+<line x1="330" y1="291" x2="1284.0" y2="291" stroke="#244C51" stroke-width="3" opacity="1"/>
+<circle cx="1284.0" cy="291" r="10" fill="#244C51" stroke="none" stroke-width="0" opacity="1"/>
+<text x="1309.0" y="299" font-size="20" fill="#263238" text-anchor="start" font-weight="500" >2.70</text>
+<text x="305" y="375" font-size="19" fill="#263238" text-anchor="end" font-weight="400" >VI, inside</text>
+<line x1="330" y1="367" x2="1185.0666666666666" y2="367" stroke="#244C51" stroke-width="3" opacity="1"/>
+<circle cx="1185.0666666666666" cy="367" r="10" fill="#244C51" stroke="none" stroke-width="0" opacity="1"/>
+<text x="1210.0666666666666" y="375" font-size="20" fill="#263238" text-anchor="start" font-weight="500" >2.42</text>
+<text x="305" y="451" font-size="19" fill="#263238" text-anchor="end" font-weight="400" >VIII, inside</text>
+<line x1="330" y1="443" x2="1153.2666666666667" y2="443" stroke="#244C51" stroke-width="3" opacity="1"/>
+<circle cx="1153.2666666666667" cy="443" r="10" fill="#244C51" stroke="none" stroke-width="0" opacity="1"/>
+<text x="1178.2666666666667" y="451" font-size="20" fill="#263238" text-anchor="start" font-weight="500" >2.33</text>
+<text x="305" y="527" font-size="19" fill="#263238" text-anchor="end" font-weight="400" >IX, inside</text>
+<line x1="330" y1="519" x2="1128.5333333333333" y2="519" stroke="#244C51" stroke-width="3" opacity="1"/>
+<circle cx="1128.5333333333333" cy="519" r="10" fill="#244C51" stroke="none" stroke-width="0" opacity="1"/>
+<text x="1153.5333333333333" y="527" font-size="20" fill="#263238" text-anchor="start" font-weight="500" >2.26</text>
+<text x="305" y="603" font-size="19" fill="#263238" text-anchor="end" font-weight="400" >VII, inside</text>
+<line x1="330" y1="595" x2="1121.4666666666667" y2="595" stroke="#244C51" stroke-width="3" opacity="1"/>
+<circle cx="1121.4666666666667" cy="595" r="10" fill="#244C51" stroke="none" stroke-width="0" opacity="1"/>
+<text x="1146.4666666666667" y="603" font-size="20" fill="#263238" text-anchor="start" font-weight="500" >2.24</text>
+<text x="305" y="679" font-size="19" fill="#263238" text-anchor="end" font-weight="400" >XIII, inside</text>
+<line x1="330" y1="671" x2="1117.9333333333334" y2="671" stroke="#244C51" stroke-width="3" opacity="1"/>
+<circle cx="1117.9333333333334" cy="671" r="10" fill="#244C51" stroke="none" stroke-width="0" opacity="1"/>
+<text x="1142.9333333333334" y="679" font-size="20" fill="#263238" text-anchor="start" font-weight="500" >2.23</text>
+<line x1="330" y1="785" x2="1390" y2="785" stroke="#263238" stroke-width="1" opacity="1"/>
+<line x1="330.0" y1="785" x2="330.0" y2="795" stroke="#263238" stroke-width="1" opacity="1"/>
+<text x="330.0" y="823" font-size="17" fill="#263238" text-anchor="middle" font-weight="400" >0</text>
+<line x1="683.3333333333333" y1="785" x2="683.3333333333333" y2="795" stroke="#263238" stroke-width="1" opacity="1"/>
+<text x="683.3333333333333" y="823" font-size="17" fill="#263238" text-anchor="middle" font-weight="400" >1</text>
+<line x1="1036.6666666666665" y1="785" x2="1036.6666666666665" y2="795" stroke="#263238" stroke-width="1" opacity="1"/>
+<text x="1036.6666666666665" y="823" font-size="17" fill="#263238" text-anchor="middle" font-weight="400" >2</text>
+<line x1="1390.0" y1="785" x2="1390.0" y2="795" stroke="#263238" stroke-width="1" opacity="1"/>
+<text x="1390.0" y="823" font-size="17" fill="#263238" text-anchor="middle" font-weight="400" >3</text>
+<text x="860" y="858" font-size="19" fill="#263238" text-anchor="middle" font-weight="400" >residents aged 65 and over, per child under 15</text>
+<line x1="80" y1="888" x2="1520" y2="888" stroke="#D7D2C7" stroke-width="1" opacity="1"/>
+<text x="80" y="920" font-size="17" fill="#263238" text-anchor="start" font-weight="400" ><tspan x="80" dy="0">Modelled for the study area. The differences between the six segments are indicative only.</tspan></text>
+<metadata>{&quot;rows&quot;: [[&quot;Polygon, all&quot;, 2.36], [&quot;V, inside&quot;, 2.7], [&quot;VI, inside&quot;, 2.42], [&quot;VIII, inside&quot;, 2.33], [&quot;IX, inside&quot;, 2.26], [&quot;VII, inside&quot;, 2.24], [&quot;XIII, inside&quot;, 2.23]], &quot;Budapest reference&quot;: 1.69}</metadata>
+</svg>

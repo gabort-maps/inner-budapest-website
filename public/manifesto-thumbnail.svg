@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title description">
+  <title id="title">Movement is a need. Storage is a habit.</title>
+  <desc id="description">A warm-paper editorial thumbnail carrying the manifesto's two-line proposition.</desc>
+  <rect width="1200" height="800" fill="#f4f1e9"/>
+  <rect x="84" y="96" width="4" height="608" fill="#d96642"/>
+  <g fill="#244c51" font-family="Georgia, 'Times New Roman', serif" font-size="92" font-weight="400" letter-spacing="-3.4">
+    <text x="146" y="333">Movement is a need.</text>
+    <text x="146" y="474">Storage is a habit.</text>
+  </g>
+  <path d="M146 548H1052" stroke="#244c51" stroke-width="2" opacity=".22"/>
+</svg>

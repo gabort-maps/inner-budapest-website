@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1600" viewBox="0 0 1600 1600">
+  <title>Inner Pest polygon logo, Evidence Visual</title>
+  <desc>Exact eight-part KML partition rendered as a compact data-faithful identity mark.</desc>
+  <metadata>Inner Pest project polygon identity. Geometry locked to project master. Created 1 August 2026.</metadata>
+  <circle cx="800" cy="800" r="620" fill="#EEE9DF"/>
+  <path id="quarter-01" d="M695.49,175.00 L668.14,228.82 L639.52,288.19 L612.25,345.00 L809.66,438.97 L825.81,405.23 L835.21,375.75 L851.45,317.66 L876.65,236.50 L695.49,175.00 Z" fill="#244C51" stroke="#FFFDFA" stroke-width="8"/>
+  <path id="quarter-02" d="M612.25,345.00 L576.79,433.84 L757.96,528.68 L809.66,438.97 L612.25,345.00 Z" fill="#355D60" stroke="#FFFDFA" stroke-width="8"/>
+  <path id="quarter-03" d="M576.79,433.84 L571.02,467.16 L565.25,502.62 L555.00,569.69 L540.04,665.82 L558.41,785.88 L744.71,759.39 L757.96,528.68 L576.79,433.84 Z" fill="#466D6F" stroke="#FFFDFA" stroke-width="8"/>
+  <path id="quarter-04" d="M558.41,785.88 L591.96,907.87 L667.59,1081.37 L841.49,1001.45 L826.11,960.43 L742.79,903.60 L744.71,759.39 L558.41,785.88 Z" fill="#5A7F80" stroke="#FFFDFA" stroke-width="8"/>
+  <path id="quarter-05" d="M667.59,1081.37 L776.97,1233.09 L845.76,1184.79 L861.14,1169.83 L875.24,1159.15 L882.08,1143.76 L876.10,1098.46 L864.56,1058.72 L841.49,1001.45 L667.59,1081.37 Z" fill="#6E9090" stroke="#FFFDFA" stroke-width="8"/>
+  <path id="quarter-06" d="M776.97,1233.09 L785.94,1244.20 L810.72,1275.83 L859.86,1328.40 L947.03,1425.00 L963.69,1419.44 L983.34,1404.91 L1005.14,1384.82 L1041.88,1252.75 L882.08,1143.76 L875.24,1159.15 L861.14,1169.83 L845.76,1184.79 L776.97,1233.09 Z" fill="#83A1A0" stroke="#FFFDFA" stroke-width="8"/>
+  <path id="quarter-07" d="M882.08,1143.76 L876.10,1098.46 L864.56,1058.72 L841.49,1001.45 L899.30,990.13 L949.72,971.33 L1047.14,925.18 L1052.27,947.40 L1058.25,989.28 L1059.96,1025.18 L1059.10,1064.49 L1051.41,1129.45 L1046.28,1193.56 L1041.88,1252.75 L882.08,1143.76 Z" fill="#A1B6B2" stroke="#FFFDFA" stroke-width="8"/>
+  <path id="quarter-08" d="M757.96,528.68 L744.71,759.39 L742.79,903.60 L826.11,960.43 L841.49,1001.45 L899.30,990.13 L949.72,971.33 L1047.14,925.18 L1023.35,840.50 L990.02,784.95 L948.15,731.97 L913.96,689.24 L884.05,659.34 L841.33,611.49 L801.16,573.04 L757.96,528.68 Z" fill="#C6D1CB" stroke="#FFFDFA" stroke-width="8"/>
+  <circle cx="800" cy="800" r="620" fill="none" stroke="#D4CDC0" stroke-width="3"/>
+  <path d="M1215 250 V1350" stroke="#263238" stroke-width="4"/>
+  <g fill="#244C51">
+    <circle cx="1215" cy="300" r="16"/><circle cx="1215" cy="450" r="16"/><circle cx="1215" cy="600" r="16"/><circle cx="1215" cy="750" r="16"/>
+    <circle cx="1215" cy="900" r="16"/><circle cx="1215" cy="1050" r="16"/><circle cx="1215" cy="1200" r="16"/><circle cx="1215" cy="1350" r="16"/>
+  </g>
+  <path d="M280 1370 H520" stroke="#263238" stroke-width="12"/>
+  <path d="M280 1348V1392M520 1348V1392" stroke="#263238" stroke-width="8"/>
+</svg>

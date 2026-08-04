@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">How many children are missing</title><desc id="desc">Stacked bars show observed children and the shortfall against Budapest’s 12.4 percent rate.</desc>
+<style>text{font-family:Arial,"Helvetica Neue",sans-serif;font-variant-numeric:tabular-nums lining-nums}.axis{shape-rendering:crispEdges}</style>
+<rect x="0" y="0" width="1600" height="1000" fill="#F4F1E9" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="80" y="78" font-size="44" fill="#263238" text-anchor="start" font-weight="500" >How many children are missing</text>
+<text x="80" y="116" font-size="23" fill="#687377" text-anchor="start" font-weight="400" >The comparison gap, shown district by district</text>
+<rect x="1350" y="52" width="170" height="44" fill="#EEE9DF" stroke="#D7D2C7" stroke-width="1" rx="22" opacity="1"/>
+<text x="1435" y="82" font-size="16" fill="#263238" text-anchor="middle" font-weight="500" letter-spacing="1.4">OBSERVED</text>
+<rect x="260" y="150" width="24" height="18" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="296" y="166" font-size="18" fill="#263238" text-anchor="start" font-weight="400" >children who live here</text>
+<rect x="555" y="150" width="24" height="18" fill="#D96642" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="591" y="166" font-size="18" fill="#263238" text-anchor="start" font-weight="400" >the gap against the city rate</text>
+<text x="235" y="241" font-size="22" fill="#263238" text-anchor="end" font-weight="500" >V</text>
+<rect x="260" y="210" width="124.91875000000002" height="46" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="384.91875000000005" y="210" width="62.7" height="46" fill="#D96642" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="416.26875000000007" y="241" font-size="18" fill="#FFFDFA" text-anchor="middle" font-weight="500" >912</text>
+<text x="235" y="333" font-size="22" fill="#263238" text-anchor="end" font-weight="500" >VI</text>
+<rect x="260" y="302" width="206.25000000000003" height="46" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="466.25" y="302" width="96.93750000000001" height="46" fill="#D96642" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="514.71875" y="333" font-size="18" fill="#FFFDFA" text-anchor="middle" font-weight="500" >1,410</text>
+<text x="235" y="425" font-size="22" fill="#263238" text-anchor="end" font-weight="500" >VII</text>
+<rect x="260" y="394" width="273.14375" height="46" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="533.14375" y="394" width="145.6125" height="46" fill="#D96642" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="605.9499999999999" y="425" font-size="18" fill="#FFFDFA" text-anchor="middle" font-weight="500" >2,118</text>
+<text x="235" y="517" font-size="22" fill="#263238" text-anchor="end" font-weight="500" >VIII</text>
+<rect x="260" y="486" width="405.41875000000005" height="46" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="665.41875" y="486" width="193.87500000000003" height="46" fill="#D96642" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="762.35625" y="517" font-size="18" fill="#FFFDFA" text-anchor="middle" font-weight="500" >2,820</text>
+<text x="235" y="609" font-size="22" fill="#263238" text-anchor="end" font-weight="500" >IX</text>
+<rect x="260" y="578" width="397.71875000000006" height="46" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="657.71875" y="578" width="112.06250000000001" height="46" fill="#D96642" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="713.75" y="609" font-size="18" fill="#FFFDFA" text-anchor="middle" font-weight="500" >1,630</text>
+<text x="235" y="701" font-size="22" fill="#263238" text-anchor="end" font-weight="500" >XIII</text>
+<rect x="260" y="670" width="986.7687500000001" height="46" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="1246.7687500000002" y="670" width="65.3125" height="46" fill="#D96642" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="1279.4250000000002" y="701" font-size="18" fill="#FFFDFA" text-anchor="middle" font-weight="500" >950</text>
+<line x1="260" y1="785" x2="1360.0" y2="785" stroke="#263238" stroke-width="1" opacity="1"/>
+<line x1="260.0" y1="785" x2="260.0" y2="795" stroke="#263238" stroke-width="1" opacity="1"/>
+<text x="260.0" y="822" font-size="17" fill="#263238" text-anchor="middle" font-weight="400" >0</text>
+<line x1="603.75" y1="785" x2="603.75" y2="795" stroke="#263238" stroke-width="1" opacity="1"/>
+<text x="603.75" y="822" font-size="17" fill="#263238" text-anchor="middle" font-weight="400" >5k</text>
+<line x1="947.5" y1="785" x2="947.5" y2="795" stroke="#263238" stroke-width="1" opacity="1"/>
+<text x="947.5" y="822" font-size="17" fill="#263238" text-anchor="middle" font-weight="400" >10k</text>
+<line x1="1291.25" y1="785" x2="1291.25" y2="795" stroke="#263238" stroke-width="1" opacity="1"/>
+<text x="1291.25" y="822" font-size="17" fill="#263238" text-anchor="middle" font-weight="400" >15k</text>
+<text x="810" y="858" font-size="19" fill="#263238" text-anchor="middle" font-weight="400" >children under 15</text>
+<line x1="80" y1="888" x2="1520" y2="888" stroke="#D7D2C7" stroke-width="1" opacity="1"/>
+<text x="80" y="920" font-size="17" fill="#263238" text-anchor="start" font-weight="400" ><tspan x="80" dy="0">These are whole-district counts, not the study area, and they are comparison gaps, not forecasts of how many children</tspan><tspan x="80" dy="22.950000000000003">could or should be added.</tspan></text>
+<metadata>[[&quot;V&quot;, 1817, 912], [&quot;VI&quot;, 3000, 1410], [&quot;VII&quot;, 3973, 2118], [&quot;VIII&quot;, 5897, 2820], [&quot;IX&quot;, 5785, 1630], [&quot;XIII&quot;, 14353, 950]]</metadata>
+</svg>

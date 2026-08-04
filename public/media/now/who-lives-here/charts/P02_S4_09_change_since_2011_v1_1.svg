@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">What changed since 2011</title>
+<desc id="desc">Four shared-scale dot plots compare district percentage-point changes with Budapest from 2011 to 2022.</desc>
+<style>text{font-family:Arial,"Helvetica Neue",sans-serif;font-variant-numeric:tabular-nums lining-nums}.axis{shape-rendering:crispEdges}</style>
+<rect x="0" y="0" width="1600" height="1000" fill="#F4F1E9"/>
+<text x="80" y="78" font-size="44" fill="#263238" text-anchor="start" font-weight="500">What changed since 2011</text>
+<text x="80" y="116" font-size="23" fill="#687377" text-anchor="start" font-weight="400">Percentage point change from 2011 to 2022, on one shared scale</text>
+<rect x="1350" y="52" width="170" height="44" fill="#EEE9DF" stroke="#D7D2C7" stroke-width="1" rx="22"/>
+<text x="1435" y="82" font-size="16" fill="#263238" text-anchor="middle" font-weight="500" letter-spacing="1.4">OBSERVED</text>
+
+<text x="255" y="178" font-size="22" fill="#263238" text-anchor="middle" font-weight="500">Under 15</text>
+<line x1="209.1" y1="238" x2="209.1" y2="552" stroke="#D7D2C7" stroke-width="5"/>
+<text x="215.1" y="228" font-size="15" fill="#263238" text-anchor="start" font-weight="400">Budapest +0.3</text>
+<line class="axis" x1="120" y1="575" x2="390" y2="575" stroke="#263238" stroke-width="1.5"/>
+<line x1="120" y1="575" x2="120" y2="583" stroke="#263238"/><text x="120" y="606" font-size="15" fill="#263238" text-anchor="middle">−3</text>
+<line x1="201" y1="575" x2="201" y2="583" stroke="#263238"/><text x="201" y="606" font-size="15" fill="#263238" text-anchor="middle">0</text>
+<line x1="282" y1="575" x2="282" y2="583" stroke="#263238"/><text x="282" y="606" font-size="15" fill="#263238" text-anchor="middle">+3</text>
+<line x1="363" y1="575" x2="363" y2="583" stroke="#263238"/><text x="363" y="606" font-size="15" fill="#263238" text-anchor="middle">+6</text>
+<circle cx="233.4" cy="285" r="7" fill="#244C51"/><text x="245.4" y="291" font-size="17" fill="#263238">V</text>
+<circle cx="219.9" cy="335" r="7" fill="#244C51"/><text x="231.9" y="341" font-size="17" fill="#263238">VI</text>
+<circle cx="192.9" cy="385" r="7" fill="#244C51"/><text x="204.9" y="391" font-size="17" fill="#263238">VII</text>
+<circle cx="165.9" cy="435" r="9" fill="#D96642"/><text x="177.9" y="441" font-size="17" fill="#D96642" font-weight="500">VIII</text>
+<circle cx="209.1" cy="485" r="7" fill="#244C51"/><text x="221.1" y="491" font-size="17" fill="#263238">IX</text>
+<circle cx="244.2" cy="535" r="7" fill="#244C51"/><text x="256.2" y="541" font-size="17" fill="#263238">XIII</text>
+
+<text x="620" y="178" font-size="22" fill="#263238" text-anchor="middle" font-weight="500">Age 30 to 49</text>
+<line x1="614.6" y1="238" x2="614.6" y2="552" stroke="#D7D2C7" stroke-width="5"/>
+<text x="620.6" y="228" font-size="15" fill="#263238" text-anchor="start" font-weight="400">Budapest +1.8</text>
+<line class="axis" x1="485" y1="575" x2="755" y2="575" stroke="#263238" stroke-width="1.5"/>
+<line x1="485" y1="575" x2="485" y2="583" stroke="#263238"/><text x="485" y="606" font-size="15" fill="#263238" text-anchor="middle">−3</text>
+<line x1="566" y1="575" x2="566" y2="583" stroke="#263238"/><text x="566" y="606" font-size="15" fill="#263238" text-anchor="middle">0</text>
+<line x1="647" y1="575" x2="647" y2="583" stroke="#263238"/><text x="647" y="606" font-size="15" fill="#263238" text-anchor="middle">+3</text>
+<line x1="728" y1="575" x2="728" y2="583" stroke="#263238"/><text x="728" y="606" font-size="15" fill="#263238" text-anchor="middle">+6</text>
+<circle cx="730.7" cy="285" r="7" fill="#244C51"/><text x="718.7" y="291" font-size="17" fill="#263238" text-anchor="end">V</text>
+<circle cx="706.4" cy="335" r="7" fill="#244C51"/><text x="694.4" y="341" font-size="17" fill="#263238" text-anchor="end">VI</text>
+<circle cx="690.2" cy="385" r="7" fill="#244C51"/><text x="678.2" y="391" font-size="17" fill="#263238" text-anchor="end">VII</text>
+<circle cx="647.0" cy="435" r="9" fill="#D96642"/><text x="659" y="441" font-size="17" fill="#D96642" font-weight="500">VIII</text>
+<circle cx="714.5" cy="485" r="7" fill="#244C51"/><text x="702.5" y="491" font-size="17" fill="#263238" text-anchor="end">IX</text>
+<circle cx="692.9" cy="535" r="7" fill="#244C51"/><text x="680.9" y="541" font-size="17" fill="#263238" text-anchor="end">XIII</text>
+<line x1="485" y1="646" x2="515" y2="646" stroke="#244C51" stroke-width="4"/>
+<text x="527" y="652" font-size="18" fill="#263238" font-weight="500"><tspan x="527" dy="0">Every district grew faster</tspan><tspan x="527" dy="23">than the city.</tspan></text>
+
+<text x="985" y="178" font-size="22" fill="#263238" text-anchor="middle" font-weight="500">Age 65+</text>
+<line x1="993.1" y1="238" x2="993.1" y2="552" stroke="#D7D2C7" stroke-width="5"/>
+<text x="999.1" y="228" font-size="15" fill="#263238" text-anchor="start" font-weight="400">Budapest +2.3</text>
+<line class="axis" x1="850" y1="575" x2="1120" y2="575" stroke="#263238" stroke-width="1.5"/>
+<line x1="850" y1="575" x2="850" y2="583" stroke="#263238"/><text x="850" y="606" font-size="15" fill="#263238" text-anchor="middle">−3</text>
+<line x1="931" y1="575" x2="931" y2="583" stroke="#263238"/><text x="931" y="606" font-size="15" fill="#263238" text-anchor="middle">0</text>
+<line x1="1012" y1="575" x2="1012" y2="583" stroke="#263238"/><text x="1012" y="606" font-size="15" fill="#263238" text-anchor="middle">+3</text>
+<line x1="1093" y1="575" x2="1093" y2="583" stroke="#263238"/><text x="1093" y="606" font-size="15" fill="#263238" text-anchor="middle">+6</text>
+<circle cx="855.4" cy="285" r="7" fill="#244C51"/><text x="867.4" y="291" font-size="17" fill="#263238">V</text>
+<circle cx="893.2" cy="335" r="7" fill="#244C51"/><text x="905.2" y="341" font-size="17" fill="#263238">VI</text>
+<circle cx="909.4" cy="385" r="7" fill="#244C51"/><text x="921.4" y="391" font-size="17" fill="#263238">VII</text>
+<circle cx="939.1" cy="435" r="9" fill="#D96642"/><text x="951.1" y="441" font-size="17" fill="#D96642" font-weight="500">VIII</text>
+<circle cx="909.4" cy="485" r="7" fill="#244C51"/><text x="921.4" y="491" font-size="17" fill="#263238">IX</text>
+<circle cx="941.8" cy="535" r="7" fill="#244C51"/><text x="953.8" y="541" font-size="17" fill="#263238">XIII</text>
+<line x1="850" y1="646" x2="880" y2="646" stroke="#244C51" stroke-width="4"/>
+<text x="892" y="652" font-size="18" fill="#263238" font-weight="500"><tspan x="892" dy="0">The share fell in four of the six,</tspan><tspan x="892" dy="23">while it rose across Budapest.</tspan></text>
+
+<text x="1350" y="178" font-size="22" fill="#263238" text-anchor="middle" font-weight="500">One-person households</text>
+<line x1="1390.5" y1="238" x2="1390.5" y2="552" stroke="#D7D2C7" stroke-width="5"/>
+<text x="1384.5" y="228" font-size="15" fill="#263238" text-anchor="end" font-weight="400">Budapest +3.5</text>
+<line class="axis" x1="1215" y1="575" x2="1485" y2="575" stroke="#263238" stroke-width="1.5"/>
+<line x1="1215" y1="575" x2="1215" y2="583" stroke="#263238"/><text x="1215" y="606" font-size="15" fill="#263238" text-anchor="middle">−3</text>
+<line x1="1296" y1="575" x2="1296" y2="583" stroke="#263238"/><text x="1296" y="606" font-size="15" fill="#263238" text-anchor="middle">0</text>
+<line x1="1377" y1="575" x2="1377" y2="583" stroke="#263238"/><text x="1377" y="606" font-size="15" fill="#263238" text-anchor="middle">+3</text>
+<line x1="1458" y1="575" x2="1458" y2="583" stroke="#263238"/><text x="1458" y="606" font-size="15" fill="#263238" text-anchor="middle">+6</text>
+<circle cx="1431.0" cy="285" r="7" fill="#244C51"/><text x="1419" y="291" font-size="17" fill="#263238" text-anchor="end">V</text>
+<circle cx="1371.6" cy="335" r="7" fill="#244C51"/><text x="1359.6" y="341" font-size="17" fill="#263238" text-anchor="end">VI</text>
+<circle cx="1455.3" cy="385" r="7" fill="#244C51"/><text x="1443.3" y="391" font-size="17" fill="#263238" text-anchor="end">VII</text>
+<circle cx="1474.2" cy="435" r="9" fill="#D96642"/><text x="1462.2" y="441" font-size="17" fill="#D96642" text-anchor="end" font-weight="500">VIII</text>
+<circle cx="1422.9" cy="485" r="7" fill="#244C51"/><text x="1410.9" y="491" font-size="17" fill="#263238" text-anchor="end">IX</text>
+<circle cx="1401.3" cy="535" r="7" fill="#244C51"/><text x="1389.3" y="541" font-size="17" fill="#263238" text-anchor="end">XIII</text>
+
+<text x="800" y="785" font-size="18" fill="#263238" text-anchor="middle" font-weight="400">Dots show six whole districts. Limestone lines show Budapest.</text>
+<line x1="80" y1="878" x2="1520" y2="878" stroke="#D7D2C7" stroke-width="1"/>
+<text x="80" y="910" font-size="17" fill="#263238" text-anchor="start" font-weight="400">Whole districts, not the study area.</text>
+<metadata>{&quot;measures&quot;:[&quot;Under 15&quot;,&quot;Age 30 to 49&quot;,&quot;Age 65+&quot;,&quot;One-person households&quot;],&quot;districts&quot;:{&quot;V&quot;:[1.2,6.1,-2.8,5.0],&quot;VI&quot;:[0.7,5.2,-1.4,2.8],&quot;VII&quot;:[-0.3,4.6,-0.8,5.9],&quot;VIII&quot;:[-1.3,3.0,0.3,6.6],&quot;IX&quot;:[0.3,5.5,-0.8,4.7],&quot;XIII&quot;:[1.6,4.7,0.4,3.9],&quot;Budapest&quot;:[0.3,1.8,2.3,3.5]}}</metadata>
+</svg>

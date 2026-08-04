@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">Living alone, and not because they are old</title><desc id="desc">Grouped bars compare one-person households with households of only older residents.</desc>
+<style>text{font-family:Arial,"Helvetica Neue",sans-serif;font-variant-numeric:tabular-nums lining-nums}.axis{shape-rendering:crispEdges}</style>
+<rect x="0" y="0" width="1600" height="1000" fill="#F4F1E9" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="80" y="78" font-size="44" fill="#263238" text-anchor="start" font-weight="500" >Living alone, and not because they are old</text>
+<text x="80" y="116" font-size="23" fill="#687377" text-anchor="start" font-weight="400" >Solo living is high; elderly-only households do not explain it</text>
+<rect x="1350" y="52" width="170" height="44" fill="#EEE9DF" stroke="#D7D2C7" stroke-width="1" rx="22" opacity="1"/>
+<text x="1435" y="82" font-size="16" fill="#263238" text-anchor="middle" font-weight="500" letter-spacing="1.4">OBSERVED</text>
+<rect x="310" y="148" width="22" height="14" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="344" y="161" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >one-person households, %</text>
+<rect x="655" y="148" width="22" height="14" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="689" y="161" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >households of only older residents, %</text>
+<text x="285" y="228" font-size="21" fill="#6E9F59" text-anchor="end" font-weight="500" >V</text>
+<rect x="310" y="205" width="915.3846153846154" height="22" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="310" y="235" width="355.3846153846154" height="22" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="1237.3846153846152" y="223" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >59.5</text>
+<text x="677.3846153846155" y="253" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >23.1</text>
+<rect x="298" y="195" width="987.3846153846154" height="76" fill="none" stroke="#6E9F59" stroke-width="3" rx="8" opacity="1"/>
+<text x="285" y="310" font-size="21" fill="#263238" text-anchor="end" font-weight="400" >VII</text>
+<rect x="310" y="287" width="872.3076923076924" height="22" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="310" y="317" width="241.53846153846155" height="22" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="1194.3076923076924" y="305" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >56.7</text>
+<text x="563.5384615384615" y="335" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >15.7</text>
+<text x="285" y="392" font-size="21" fill="#263238" text-anchor="end" font-weight="400" >VI</text>
+<rect x="310" y="369" width="858.4615384615385" height="22" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="310" y="399" width="247.6923076923077" height="22" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="1180.4615384615386" y="387" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >55.8</text>
+<text x="569.6923076923077" y="417" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >16.1</text>
+<text x="285" y="474" font-size="21" fill="#263238" text-anchor="end" font-weight="400" >IX</text>
+<rect x="310" y="451" width="850.7692307692307" height="22" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="310" y="481" width="249.23076923076923" height="22" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="1172.7692307692307" y="469" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >55.3</text>
+<text x="571.2307692307693" y="499" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >16.2</text>
+<text x="285" y="556" font-size="21" fill="#263238" text-anchor="end" font-weight="400" >VIII</text>
+<rect x="310" y="533" width="847.6923076923077" height="22" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="310" y="563" width="241.53846153846155" height="22" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="1169.6923076923076" y="551" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >55.1</text>
+<text x="563.5384615384615" y="581" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >15.7</text>
+<text x="285" y="638" font-size="21" fill="#263238" text-anchor="end" font-weight="400" >XIII</text>
+<rect x="310" y="615" width="812.3076923076923" height="22" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="310" y="645" width="304.61538461538464" height="22" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="1134.3076923076924" y="633" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >52.8</text>
+<text x="626.6153846153846" y="663" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >19.8</text>
+<line x1="130" y1="672" x2="1480" y2="672" stroke="#263238" stroke-width="1" opacity="1"/>
+<text x="285" y="720" font-size="21" fill="#263238" text-anchor="end" font-weight="500" >Budapest</text>
+<rect x="310" y="697" width="690.7692307692307" height="22" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="310" y="727" width="341.53846153846155" height="22" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="1012.7692307692307" y="715" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >44.9</text>
+<text x="663.5384615384615" y="745" font-size="17" fill="#263238" text-anchor="start" font-weight="400" >22.2</text>
+<text x="1260" y="330" font-size="18" fill="#263238" text-anchor="start" font-weight="500" ><tspan x="1260" dy="0">Every district lives alone more</tspan><tspan x="1260" dy="22.5">than the city does. Only District V</tspan><tspan x="1260" dy="22.5">also has more all-elderly households</tspan><tspan x="1260" dy="22.5">than the city.</tspan></text>
+<line x1="80" y1="878" x2="1520" y2="878" stroke="#D7D2C7" stroke-width="1" opacity="1"/>
+<text x="80" y="910" font-size="17" fill="#263238" text-anchor="start" font-weight="400" ><tspan x="80" dy="0">District level. The census does not cross-tabulate living alone with age, so the working-age reading is a strong inference,</tspan><tspan x="80" dy="22.950000000000003">not a count.</tspan></text>
+<metadata>[[&quot;V&quot;, 59.5, 23.1], [&quot;VII&quot;, 56.7, 15.7], [&quot;VI&quot;, 55.8, 16.1], [&quot;IX&quot;, 55.3, 16.2], [&quot;VIII&quot;, 55.1, 15.7], [&quot;XIII&quot;, 52.8, 19.8], [&quot;Budapest&quot;, 44.9, 22.2]]</metadata>
+</svg>

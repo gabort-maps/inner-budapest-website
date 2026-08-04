@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+<title id="title">The age tree</title><desc id="desc">Two-sided age profile comparing the study polygon with Budapest, including an alternative polygon allocation.</desc>
+<style>text{font-family:Arial,"Helvetica Neue",sans-serif;font-variant-numeric:tabular-nums lining-nums}.axis{shape-rendering:crispEdges}</style>
+<rect x="0" y="0" width="1600" height="1000" fill="#F4F1E9" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="80" y="78" font-size="44" fill="#263238" text-anchor="start" font-weight="500" >The age tree</text>
+<text x="80" y="116" font-size="23" fill="#687377" text-anchor="start" font-weight="400" >A missing bottom and a swollen middle, not an old neighbourhood</text>
+<rect x="1350" y="52" width="170" height="44" fill="#EEE9DF" stroke="#D7D2C7" stroke-width="1" rx="22" opacity="1"/>
+<text x="1435" y="82" font-size="16" fill="#263238" text-anchor="middle" font-weight="500" letter-spacing="1.4">MODELLED</text>
+<text x="690" y="160" font-size="21" fill="#244C51" text-anchor="end" font-weight="500" >The polygon, modelled</text>
+<text x="910" y="160" font-size="21" fill="#263238" text-anchor="start" font-weight="500" >Budapest</text>
+<line x1="702" y1="166" x2="702" y2="746" stroke="#263238" stroke-width="1.5" opacity="1"/>
+<line x1="898" y1="166" x2="898" y2="746" stroke="#263238" stroke-width="1.5" opacity="1"/>
+<rect x="639.525" y="190" width="62.474999999999994" height="34" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="898" y="190" width="63.7" height="34" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="800" y="215" font-size="21" fill="#263238" text-anchor="middle" font-weight="500" >80+</text>
+<text x="627.525" y="214" font-size="18" fill="#263238" text-anchor="end" font-weight="400" >5.1</text>
+<text x="973.7" y="214" font-size="18" fill="#263238" text-anchor="start" font-weight="400" >5.2</text>
+<rect x="512.125" y="263" width="189.875" height="34" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="898" y="263" width="194.775" height="34" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="800" y="288" font-size="21" fill="#263238" text-anchor="middle" font-weight="500" >65–79</text>
+<text x="500.125" y="287" font-size="18" fill="#263238" text-anchor="end" font-weight="400" >15.5</text>
+<text x="1104.775" y="287" font-size="18" fill="#263238" text-anchor="start" font-weight="400" >15.9</text>
+<rect x="308.775" y="336" width="393.225" height="34" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="898" y="336" width="425.07500000000005" height="34" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<path d="M 308.775 332 L 248.75 332 L 248.75 374 L 308.775 374" fill="none" stroke="#E5A52D" stroke-width="4" opacity="1"/>
+<text x="800" y="361" font-size="21" fill="#263238" text-anchor="middle" font-weight="500" >40–64</text>
+<text x="236.75" y="360" font-size="18" fill="#263238" text-anchor="end" font-weight="400" >32.1</text>
+<text x="1335.075" y="360" font-size="18" fill="#263238" text-anchor="start" font-weight="400" >34.7</text>
+<rect x="354.1" y="409" width="347.9" height="34" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="898" y="409" width="267.05" height="34" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<line x1="417.8" y1="405" x2="417.8" y2="447" stroke="#E5A52D" stroke-width="4" opacity="1"/>
+<text x="800" y="434" font-size="21" fill="#263238" text-anchor="middle" font-weight="500" >25–39</text>
+<text x="342.1" y="433" font-size="18" fill="#263238" text-anchor="end" font-weight="400" >28.4</text>
+<text x="1177.05" y="433" font-size="18" fill="#263238" text-anchor="start" font-weight="400" >21.8</text>
+<rect x="575.825" y="482" width="126.17500000000001" height="34" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="898" y="482" width="121.275" height="34" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="800" y="507" font-size="21" fill="#263238" text-anchor="middle" font-weight="500" >15–24</text>
+<text x="563.825" y="506" font-size="18" fill="#263238" text-anchor="end" font-weight="400" >10.3</text>
+<text x="1031.275" y="506" font-size="18" fill="#263238" text-anchor="start" font-weight="400" >9.9</text>
+<rect x="667.7" y="555" width="34.3" height="34" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="898" y="555" width="52.675" height="34" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="800" y="580" font-size="21" fill="#263238" text-anchor="middle" font-weight="500" >10–14</text>
+<text x="655.7" y="579" font-size="18" fill="#263238" text-anchor="end" font-weight="400" >2.8</text>
+<text x="962.675" y="579" font-size="18" fill="#263238" text-anchor="start" font-weight="400" >4.3</text>
+<rect x="666.475" y="628" width="35.525" height="34" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="898" y="628" width="50.224999999999994" height="34" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="800" y="653" font-size="21" fill="#263238" text-anchor="middle" font-weight="500" >5–9</text>
+<text x="654.475" y="652" font-size="18" fill="#263238" text-anchor="end" font-weight="400" >2.9</text>
+<text x="960.225" y="652" font-size="18" fill="#263238" text-anchor="start" font-weight="400" >4.1</text>
+<rect x="665.25" y="701" width="36.75" height="34" fill="#244C51" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<rect x="898" y="701" width="49.0" height="34" fill="#D7D2C7" stroke="none" stroke-width="0" rx="0" opacity="1"/>
+<text x="800" y="726" font-size="21" fill="#263238" text-anchor="middle" font-weight="500" >0–4</text>
+<text x="653.25" y="725" font-size="18" fill="#263238" text-anchor="end" font-weight="400" >3.0</text>
+<text x="959.0" y="725" font-size="18" fill="#263238" text-anchor="start" font-weight="400" >4.0</text>
+<line x1="260" y1="800" x2="1340" y2="800" stroke="#D7D2C7" stroke-width="1" opacity="1"/>
+<text x="800" y="824" font-size="19" fill="#263238" text-anchor="middle" font-weight="400" >share of residents, %</text>
+<path d="M 650 840 L 630 840 L 630 854 L 650 854" fill="none" stroke="#E5A52D" stroke-width="4" opacity="1"/>
+<text x="662" y="853" font-size="18" fill="#263238" text-anchor="start" font-weight="400" >alternative allocation</text>
+<line x1="80" y1="880" x2="1520" y2="880" stroke="#D7D2C7" stroke-width="1" opacity="1"/>
+<text x="80" y="912" font-size="17" fill="#263238" text-anchor="start" font-weight="400" ><tspan x="80" dy="0">Polygon figures are allocated from official district and grid data, not counted here. The 25 to 39 band moves by about</tspan><tspan x="80" dy="22.950000000000003">4,900 residents depending on the allocation shape used.</tspan></text>
+<metadata>[[&quot;80+&quot;, 5.1, 5.1, 5.2], [&quot;65–79&quot;, 15.5, 15.5, 15.9], [&quot;40–64&quot;, 32.1, 37.0, 34.7], [&quot;25–39&quot;, 28.4, 23.2, 21.8], [&quot;15–24&quot;, 10.3, 10.6, 9.9], [&quot;10–14&quot;, 2.8, 3.0, 4.3], [&quot;5–9&quot;, 2.9, 2.9, 4.1], [&quot;0–4&quot;, 3.0, 2.8, 4.0]]</metadata>
+</svg>

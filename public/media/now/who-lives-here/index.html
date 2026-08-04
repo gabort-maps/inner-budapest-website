@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en-GB"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Who lives here · Inner Budapest Opening</title>
+<style>
+:root{--paper:#f1eadc;--paper-soft:#f7f2e8;--ink:#193f41;--ink-dark:#102f31;
+--muted:#556968;--terracotta:#a34e39;
+--terracotta-bright:#e2916f;
+--rule:rgba(25,63,65,.22);--deep:#14332e;--deep-2:#0e2822}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--paper);color:var(--ink);
+font:17px/1.6 Georgia,"Times New Roman",serif;overflow:hidden}
+.shell{height:100vh;display:grid;grid-template-rows:auto 1fr auto}
+
+/* top tab row. Numbers only, so it never needs to wrap or scroll regardless
+   of viewport width. Full titles live in the rail. */
+.tabs{display:flex;gap:6px;padding:6px clamp(18px,2.4vw,34px);border-bottom:1px solid var(--rule)}
+.tab{background:none;border:0;cursor:pointer;width:29px;height:29px;border-radius:50%;
+font:700 12px/1 "Courier New",monospace;letter-spacing:.02em;
+color:var(--muted);border:1.5px solid transparent}
+.tab:hover{color:var(--ink-dark);border-color:var(--rule)}
+.tab.is-on{color:#fff;background:var(--terracotta);border-color:var(--terracotta)}
+
+/* three columns */
+.cols{display:grid;grid-template-columns:clamp(210px,17vw,265px) 1fr;min-height:0}
+.railcol{border-right:1px solid var(--rule);overflow-y:auto;padding:20px 0 30px;background:var(--paper)}
+.rail-head{padding:0 20px 12px;font:700 10px/1 "Courier New",monospace;letter-spacing:.1em;
+text-transform:uppercase;color:var(--muted)}
+.rail-item{display:flex;gap:11px;width:100%;text-align:left;background:none;border:0;cursor:pointer;
+padding:9px 20px 9px 17px;border-left:3px solid transparent;color:var(--muted);
+font:16px/1.35 Georgia,serif}
+.rail-item:hover{color:var(--ink-dark);background:rgba(25,63,65,.04)}
+.rail-num{font:700 10px/1.7 "Courier New",monospace;letter-spacing:.06em;color:var(--muted);flex:0 0 auto}
+.rail-item.is-on{color:var(--ink-dark);border-left-color:var(--terracotta);background:var(--paper-soft)}
+.rail-item.is-on .rail-num{color:var(--terracotta)}
+.rail-item.is-on .rail-title{font-weight:600}
+
+.stage{position:relative;min-height:0;display:grid}
+.panel{display:none;grid-column:1;grid-row:1;grid-template-columns:1fr clamp(340px,26vw,420px);
+min-height:0}
+.panel.is-on{display:grid}
+.panel.panel-full{grid-template-columns:1fr}
+
+/* middle */
+.mid{min-height:0;overflow-y:auto;padding:clamp(14px,1.8vw,26px);
+display:flex;flex-direction:column;flex:1 1 auto}
+.midwrap{min-height:0;position:relative;display:flex;flex-direction:column}
+.plate{margin:auto 0}
+.plate img{display:block;width:100%;height:auto;max-height:calc(100vh - 300px);object-fit:contain;
+border:1px solid var(--rule);background:#f4f1e9}
+.numbers{margin-top:12px}
+.numbers summary{list-style:none;cursor:pointer;display:inline-block;padding:8px 0;
+font:700 10.5px/1 "Courier New",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--terracotta)}
+.numbers summary::-webkit-details-marker{display:none}
+.numbers[open] summary{color:var(--ink-dark)}
+.numbers .basis{font-size:13.5px;color:var(--muted);margin:4px 0 10px;max-width:78ch}
+.numbers table{border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums lining-nums;width:100%}
+.numbers th,.numbers td{text-align:right;padding:6px 10px;border-bottom:1px solid var(--rule)}
+.numbers thead th{font:700 10px/1 "Courier New",monospace;letter-spacing:.06em;
+text-transform:uppercase;color:var(--muted)}
+.numbers tbody th{text-align:left;font-weight:400}
+.numbers thead th:first-child{text-align:left}
+
+.highlight{max-width:640px;margin:auto;padding:6px 0}
+.highlight h2{font-size:clamp(24px,2.4vw,32px);line-height:1.1;font-weight:500;
+color:var(--ink-dark);margin:0 0 15px}
+.highlight p{margin:0 0 13px;font-size:17px;line-height:1.48}
+.highlight p.beat{font-size:clamp(20px,2vw,26px);line-height:1.2;
+color:var(--terracotta);font-weight:600;margin-top:18px}
+
+.right{background:var(--deep);color:#e9e2d3;display:flex;flex-direction:column;min-height:0;
+border-left:1px solid var(--rule)}
+.right-scroll{position:relative;min-height:0;display:flex;flex-direction:column;flex:1 1 auto}
+.right-body{overflow-y:auto;scrollbar-width:none;padding:clamp(14px,1.6vw,22px);flex:1 1 auto}
+.right-body::-webkit-scrollbar{display:none}
+.right .eyebrow{font:700 10px/1 "Courier New",monospace;letter-spacing:.1em;text-transform:uppercase;
+color:#9db4a4;margin:0 0 11px}
+.right p{margin:0 0 11px;line-height:1.48}
+.right-body p:not(.eyebrow){color:#e6dfd0}
+.right-body p.beat{color:var(--terracotta-bright);font-weight:700;font-size:19px;margin:15px 0}
+.punch{padding:11px clamp(20px,2vw,30px) 13px;border-top:1px solid rgba(233,226,211,.22);
+background:var(--deep-2)}
+.punch p{margin:0;font-size:18px;line-height:1.32;color:var(--terracotta-bright);font-weight:700}
+
+.fade{position:absolute;left:0;right:0;bottom:0;height:32px;pointer-events:none;
+opacity:0;transition:opacity .15s}
+.right-scroll .fade{background:linear-gradient(to bottom,rgba(20,51,46,0),var(--deep))}
+.midwrap .fade{background:linear-gradient(to bottom,rgba(241,234,220,0),var(--paper))}
+.fade.show{opacity:1}
+
+.controls{display:flex;justify-content:space-between;align-items:center;gap:12px;
+padding:8px clamp(18px,2.4vw,34px);border-top:1px solid var(--rule);background:var(--paper-soft)}
+.controls button{background:none;border:0;cursor:pointer;color:var(--ink)}
+.controls button{font:700 11px/1 "Courier New",monospace;letter-spacing:.08em;text-transform:uppercase;padding:6px 0}
+.controls button[disabled]{opacity:.3;cursor:default}
+.controls .next{color:var(--terracotta)}
+.controls .pos{font:700 10px/1 "Courier New",monospace;letter-spacing:.08em;color:var(--muted)}
+
+@media (max-width:1100px){
+  body{overflow:auto}
+  .shell{height:auto}
+  .cols{grid-template-columns:1fr}
+  .railcol{border-right:0;border-bottom:1px solid var(--rule)}
+  .panel.is-on{grid-template-columns:1fr}
+  .plate img{max-height:none}
+}
+</style></head>
+<body>
+<div class="shell">
+
+  <div class="tabs" id="tabs" role="tablist" aria-label="Jump to a story step">
+    <button class="tab is-on" data-go="01" role="tab" aria-selected="true" title="The missing bottom">01</button><button class="tab" data-go="02" role="tab" aria-selected="false" title="It is not what you assume">02</button><button class="tab" data-go="03" role="tab" aria-selected="false" title="And it is not one odd corner">03</button><button class="tab" data-go="04" role="tab" aria-selected="false" title="The gap has a size">04</button><button class="tab" data-go="05" role="tab" aria-selected="false" title="Two of us for every one">05</button><button class="tab" data-go="06" role="tab" aria-selected="false" title="The line is doing the work">06</button><button class="tab" data-go="07" role="tab" aria-selected="false" title="Your second objection">07</button><button class="tab" data-go="08" role="tab" aria-selected="false" title="Small flats, and where it stops">08</button><button class="tab" data-go="09" role="tab" aria-selected="false" title="What actually changed">09</button><button class="tab" data-go="10" role="tab" aria-selected="false" title="The part that costs me something">10</button><button class="tab" data-go="11" role="tab" aria-selected="false" title="What the numbers leave">11</button>
+  </div>
+
+  <div class="cols">
+    <div class="railcol">
+      <p class="rail-head">The story</p>
+      <button class="rail-item is-on" data-go="01" aria-current="step"><span class="rail-num">01</span><span class="rail-title">The missing bottom</span></button><button class="rail-item" data-go="02"><span class="rail-num">02</span><span class="rail-title">It is not what you assume</span></button><button class="rail-item" data-go="03"><span class="rail-num">03</span><span class="rail-title">And it is not one odd corner</span></button><button class="rail-item" data-go="04"><span class="rail-num">04</span><span class="rail-title">The gap has a size</span></button><button class="rail-item" data-go="05"><span class="rail-num">05</span><span class="rail-title">Two of us for every one</span></button><button class="rail-item" data-go="06"><span class="rail-num">06</span><span class="rail-title">The line is doing the work</span></button><button class="rail-item" data-go="07"><span class="rail-num">07</span><span class="rail-title">Your second objection</span></button><button class="rail-item" data-go="08"><span class="rail-num">08</span><span class="rail-title">Small flats, and where it stops</span></button><button class="rail-item" data-go="09"><span class="rail-num">09</span><span class="rail-title">What actually changed</span></button><button class="rail-item" data-go="10"><span class="rail-num">10</span><span class="rail-title">The part that costs me something</span></button><button class="rail-item" data-go="11"><span class="rail-num">11</span><span class="rail-title">What the numbers leave</span></button>
+    </div>
+    <div class="stage" id="stage">
+      <section class="panel is-on" data-panel="01"><div class="mid"><figure class="plate"><img src="charts/P02_S4_01_age_tree_v1_1.svg" width="1600" height="1000" style="aspect-ratio:1600/1000" alt="The age tree" loading="lazy"><details class="numbers"><summary>show the numbers</summary><div><p class="basis">Polygon shares are modelled, allocated from official district and grid data. Budapest shares are observed, KSH 2022. Per cent of residents.</p><table><thead><tr><th>Age band</th><th>Polygon</th><th>Alt. allocation</th><th>Budapest</th></tr></thead><tbody><tr><th>80+</th><td>5.1</td><td>5.1</td><td>5.2</td></tr><tr><th>65–79</th><td>15.5</td><td>15.5</td><td>15.9</td></tr><tr><th>40–64</th><td>32.1</td><td>37.0</td><td>34.7</td></tr><tr><th>25–39</th><td>28.4</td><td>23.2</td><td>21.8</td></tr><tr><th>15–24</th><td>10.3</td><td>10.6</td><td>9.9</td></tr><tr><th>10–14</th><td>2.8</td><td>3.0</td><td>4.3</td></tr><tr><th>5–9</th><td>2.9</td><td>2.9</td><td>4.1</td></tr><tr><th>0–4</th><td>3.0</td><td>2.8</td><td>4.0</td></tr></tbody></table></div></details></figure></div><aside class="right"><div class="right-scroll"><div class="right-body"><p class="eyebrow">01 / The missing bottom</p><p>Everything in the last section was close. A grocery for 99.95% of us. A primary school within reach of every resident. A GP inside eight hundred metres of everybody. A pharmacy inside five hundred of almost everybody.</p><p>So this should be a neighbourhood full of families.</p><p class="beat">It is not.</p><p>Look at the shape before you read the numbers. The bottom is missing and the middle is swollen. Under nine children in every hundred residents here, against more than twelve across Budapest. The band between twenty-five and thirty-nine carries the weight instead.</p><p>The chart also shows you where the model is soft. Two bands shift depending on how the population is allocated, and neither of them is a child band.</p></div><div class="fade" aria-hidden="true"></div></div><div class="punch"><p>The shape tells you before the numbers do. The bottom is missing.</p></div></aside></section><section class="panel" data-panel="02"><div class="mid"><figure class="plate"><img src="charts/P02_S4_03_deviation_from_budapest_v1_1.svg" width="1600" height="1000" style="aspect-ratio:1600/1000" alt="Where the polygon differs from its city" loading="lazy"><details class="numbers"><summary>show the numbers</summary><div><p class="basis">Modelled polygon shares against observed Budapest shares, KSH 2022. Percentage-point deviation from the city.</p><table><thead><tr><th>Age band</th><th>Deviation, points</th></tr></thead><tbody><tr><th>80+</th><td>&minus;0.1</td></tr><tr><th>65–79</th><td>&minus;0.4</td></tr><tr><th>40–64</th><td>&minus;2.6</td></tr><tr><th>25–39</th><td>+6.6</td></tr><tr><th>15–24</th><td>+0.4</td></tr><tr><th>10–14</th><td>&minus;1.5</td></tr><tr><th>5–9</th><td>&minus;1.2</td></tr><tr><th>0–4</th><td>&minus;1.0</td></tr></tbody></table></div></details></figure></div><aside class="right"><div class="right-scroll"><div class="right-body"><p class="eyebrow">02 / It is not what you assume</p><p>You already have an explanation ready. An old neighbourhood. Grand old flats, grand old people, nobody left under forty.</p><p>Fair enough. It is the obvious reading.</p><p class="beat">It is also wrong.</p><p>Both older bands sit slightly below the city. We have marginally fewer people over sixty-five than Budapest does, not more. Every child band is short. Not one older band is long.</p><p>In fact only two bands out of eight sit above Budapest at all, and one of those barely. Even the forty to sixty-fours are thinner here than in the city.</p><p>So this is not a neighbourhood that grew old. It is a neighbourhood that filled up with adults between twenty-five and thirty-nine, six and a half points above the city, and stopped there.</p></div><div class="fade" aria-hidden="true"></div></div><div class="punch"><p>Every child band is short. Not one older band is long.</p></div></aside></section><section class="panel" data-panel="03"><div class="mid"><figure class="plate"><img src="charts/P02_S4_02_six_age_profiles_v1_0.svg" width="1600" height="1000" style="aspect-ratio:1600/1000" alt="The same shape, six times" loading="lazy"><details class="numbers"><summary>show the numbers</summary><div><p class="basis">District segments inside the polygon are modelled. The Budapest outline is observed, KSH 2022. Per cent of residents.</p><table><thead><tr><th>Age band</th><th>V</th><th>VI</th><th>VII</th><th>VIII</th><th>IX</th><th>XIII</th><th>Budapest</th></tr></thead><tbody><tr><th>80+</th><td>5.9</td><td>4.4</td><td>4.1</td><td>4.0</td><td>4.1</td><td>5.5</td><td>5.2</td></tr><tr><th>65–79</th><td>15.6</td><td>14.1</td><td>12.3</td><td>14.4</td><td>12.5</td><td>17.7</td><td>15.9</td></tr><tr><th>40–64</th><td>33.3</td><td>30.6</td><td>31.3</td><td>31.1</td><td>31.6</td><td>32.4</td><td>34.7</td></tr><tr><th>25–39</th><td>26.6</td><td>31.9</td><td>32.4</td><td>28.7</td><td>32.7</td><td>26.3</td><td>21.8</td></tr><tr><th>15–24</th><td>10.6</td><td>11.3</td><td>12.7</td><td>14.0</td><td>11.8</td><td>7.8</td><td>9.9</td></tr><tr><th>10–14</th><td>2.6</td><td>2.6</td><td>2.4</td><td>2.6</td><td>2.2</td><td>3.3</td><td>4.3</td></tr><tr><th>5–9</th><td>2.8</td><td>2.6</td><td>2.4</td><td>2.4</td><td>2.3</td><td>3.4</td><td>4.1</td></tr><tr><th>0–4</th><td>2.6</td><td>2.6</td><td>2.4</td><td>2.8</td><td>2.8</td><td>3.7</td><td>4.0</td></tr></tbody></table></div></details></figure></div><aside class="right"><div class="right-scroll"><div class="right-body"><p class="eyebrow">03 / And it is not one odd corner</p><p>Six districts sit inside this boundary, and they have almost nothing in common. District V is the government and tourist core with the largest flats. XIII is interwar modern blocks running north into Angyalföld. VIII is the poorest. VII is the party district. Six housing markets, six councils, six histories.</p><p>The same missing bottom in all six.</p><p>Look along the three child bands. Every one of them, in every one of the six, sits well below the city. The mildest is XIII, and even there the ten to fourteens are a full point short of the Budapest share.</p><p>That is what rules out a local explanation. Not one bad school, not one odd block, not one street that turned into bars.</p></div><div class="fade" aria-hidden="true"></div></div><div class="punch"><p>One odd corner would be an anecdote. Six of them is a pattern.</p></div></aside></section><section class="panel" data-panel="04"><div class="mid"><figure class="plate"><img src="charts/P02_S4_04_child_shortfall_v1_0.svg" width="1600" height="1000" style="aspect-ratio:1600/1000" alt="How many children are missing" loading="lazy"><details class="numbers"><summary>show the numbers</summary><div><p class="basis">Observed, KSH 2022, whole districts. The shortfall is each district against the Budapest rate of children. Never summed.</p><table><thead><tr><th>District</th><th>Children under 15</th><th>Shortfall</th></tr></thead><tbody><tr><th>V</th><td>1,817</td><td>912</td></tr><tr><th>VI</th><td>3,000</td><td>1,410</td></tr><tr><th>VII</th><td>3,973</td><td>2,118</td></tr><tr><th>VIII</th><td>5,897</td><td>2,820</td></tr><tr><th>IX</th><td>5,785</td><td>1,630</td></tr><tr><th>XIII</th><td>14,353</td><td>950</td></tr></tbody></table></div></details></figure></div><aside class="right"><div class="right-scroll"><div class="right-body"><p class="eyebrow">04 / The gap has a size</p><p>Take Budapest’s own rate of children and apply it here.</p><p>District VIII has 5,897 children under fifteen. At the city rate it would have nearly half as many again. That single district is short by roughly two thousand eight hundred. District V, the smallest gap, is short by about nine hundred.</p><p>XIII is the interesting one. It has by far the most children of the six, more than fourteen thousand, and by far the smallest gap in proportion to its size.</p><p>I am not adding those up. They are whole districts, not my polygon, and they are a comparison against a city average, not a target and not a forecast. Nobody owes this neighbourhood a quota of children.</p><p>But the shape of it is real, and it repeats six times.</p></div><div class="fade" aria-hidden="true"></div></div><div class="punch"><p>Nobody owes this place a quota of children. It is still a gap.</p></div></aside></section><section class="panel" data-panel="05"><div class="mid"><figure class="plate"><img src="charts/P02_S4_05_older_per_child_v1_0.svg" width="1600" height="1000" style="aspect-ratio:1600/1000" alt="Older residents per child" loading="lazy"><details class="numbers"><summary>show the numbers</summary><div><p class="basis">Polygon figures are modelled. The Budapest reference of 1.69 is observed, KSH 2022. Residents 65+ per child under 15.</p><table><thead><tr><th>Area</th><th>Older residents per child</th></tr></thead><tbody><tr><th>Polygon, all</th><td>2.36</td></tr><tr><th>V, inside</th><td>2.70</td></tr><tr><th>VI, inside</th><td>2.42</td></tr><tr><th>VIII, inside</th><td>2.33</td></tr><tr><th>IX, inside</th><td>2.26</td></tr><tr><th>VII, inside</th><td>2.24</td></tr><tr><th>XIII, inside</th><td>2.23</td></tr><tr><th>Budapest</th><td>1.69</td></tr></tbody></table></div></details></figure></div><aside class="right"><div class="right-scroll"><div class="right-body"><p class="eyebrow">05 / Two of us for every one</p><p>2.36 residents aged sixty-five or over for every child under fifteen. Across Budapest, 1.69.</p><p>The six segments run from 2.23 to 2.70, so even the mildest of them sits well above the city, and the strongest is District V at 2.70 older residents per child.</p><p>Read that with the previous chart and it says something precise. A ratio can move in two ways. This one did not move because we filled up with old people, because we have slightly fewer of them than Budapest does. It moved because the other end is thin.</p><p>Put it another way. To reach the city’s ratio, this neighbourhood would not need to lose a single older resident. It would need about forty per cent more children.</p></div><div class="fade" aria-hidden="true"></div></div><div class="punch"><p>The ratio moved because one end is thin, not because the other end is heavy.</p></div></aside></section><section class="panel" data-panel="06"><div class="mid"><figure class="plate"><img src="charts/P02_S4_06_district_xiii_inside_outside_v1_0.svg" width="1600" height="1000" style="aspect-ratio:1600/1000" alt="District XIII, inside and outside" loading="lazy"><details class="numbers"><summary>show the numbers</summary><div><p class="basis">Modelled, same grid data on both sides of the line. Age shares are per cent of residents.</p><table><thead><tr><th>Measure</th><th>Inside the polygon</th><th>Rest of District XIII</th></tr></thead><tbody><tr><th>Under 15</th><td>10.4%</td><td>11.8%</td></tr><tr><th>15–64</th><td>66.5%</td><td>71.9%</td></tr><tr><th>65 and over</th><td>23.2%</td><td>16.3%</td></tr><tr><th>Older residents per child</th><td>2.23</td><td>1.38</td></tr><tr><th>Residents per km²</th><td>19,554</td><td>8,113</td></tr></tbody></table></div></details></figure></div><aside class="right"><div class="right-scroll"><div class="right-body"><p class="eyebrow">06 / The line is doing the work</p><p>This is the one that convinced me.</p><p>District XIII. One district, one council, one schools policy, one set of rules. Inside my boundary there are 2.23 older residents per child. Outside it, in the same district, 1.38. Inside the line there are 19,554 residents per square kilometre. Outside, 8,113. That is 2.4 times the density, and a different population living in it.</p><p>Cross an invisible line and the population changes. So whatever is doing this is finer-grained than a district. It follows the streets, not the council boundaries.</p><p>What it does not tell me is the cause. Inside that line the flats are older and smaller and the blocks are denser. The comparison rules out district policy. It does not rule out bricks.</p></div><div class="fade" aria-hidden="true"></div></div><div class="punch"><p>Same council, same schools. Cross the line and the population changes.</p></div></aside></section><section class="panel" data-panel="07"><div class="mid"><figure class="plate"><img src="charts/P02_S4_07_living_alone_v1_1.svg" width="1600" height="1000" style="aspect-ratio:1600/1000" alt="Living alone, and not because they are old" loading="lazy"><details class="numbers"><summary>show the numbers</summary><div><p class="basis">Observed, KSH 2022, whole districts. Per cent of households.</p><table><thead><tr><th>District</th><th>One-person households</th><th>Everyone 65+</th></tr></thead><tbody><tr><th>V</th><td>59.5</td><td>23.1</td></tr><tr><th>VII</th><td>56.7</td><td>15.7</td></tr><tr><th>VI</th><td>55.8</td><td>16.1</td></tr><tr><th>IX</th><td>55.3</td><td>16.2</td></tr><tr><th>VIII</th><td>55.1</td><td>15.7</td></tr><tr><th>XIII</th><td>52.8</td><td>19.8</td></tr><tr><th>Budapest</th><td>44.9</td><td>22.2</td></tr></tbody></table></div></details></figure></div><aside class="right"><div class="right-scroll"><div class="right-body"><p class="eyebrow">07 / Your second objection</p><p>Students, you will say. Young professionals. Old people alone in big flats. Of course the numbers look like that.</p><p>Every one of the six districts lives alone more than Budapest does. Between fifty-three and sixty in every hundred households is one person, against forty-five across the city. District V sits nearly fifteen points above it.</p><p>Now look at the second bar. Households where everyone is over sixty-five sit at or below the city figure in five of the six.</p><p>So the people living alone here are mostly not old. They are working age. Only District V breaks it, and it breaks it in the direction you expected, which is worth one sentence and no more.</p></div><div class="fade" aria-hidden="true"></div></div><div class="punch"><p>The people living alone here are mostly not old. They are working age.</p></div></aside></section><section class="panel" data-panel="08"><div class="mid"><figure class="plate"><img src="charts/P02_S4_08_small_flats_children_v1_1_dense.svg" width="1280" height="710" style="aspect-ratio:1280/710" alt="Small flats and missing children" loading="lazy"><details class="numbers"><summary>show the numbers</summary><div><p class="basis">Observed, KSH 2022. The correlation of minus 0.87 is computed across all 23 Budapest districts, not only the seven plotted. Per cent.</p><table><thead><tr><th>District</th><th>Homes under 40 m²</th><th>Residents under 15</th></tr></thead><tbody><tr><th>Budapest</th><td>16.7</td><td>12.4</td></tr><tr><th>V</th><td>17.7</td><td>8.3</td></tr><tr><th>VI</th><td>23.9</td><td>8.5</td></tr><tr><th>XIII</th><td>23.8</td><td>11.7</td></tr><tr><th>IX</th><td>26.5</td><td>9.7</td></tr><tr><th>VIII</th><td>32.4</td><td>8.4</td></tr><tr><th>VII</th><td>33.4</td><td>8.1</td></tr></tbody></table></div></details></figure></div><aside class="right"><div class="right-scroll"><div class="right-body"><p class="eyebrow">08 / Small flats, and where it stops</p><p>Small flats. That is the real answer, most of the way.</p><p>Across all twenty-three Budapest districts, the correlation between the share of homes under forty square metres and the share of residents under fifteen is minus 0.87. That is about as strong as social statistics get. Build small, get fewer children. No mystery, no villain, no bad decision by anybody.</p><p>But two of our own districts refuse to sit on the line. District V has flats near the city average size and almost no children. District XIII has a great many small flats and nearly the city’s normal share of children.</p><p>So the housing stock explains a great deal and not everything. I do not know what the rest is. Income and tenure are not published at this level, and I am not going to invent them.</p></div><div class="fade" aria-hidden="true"></div></div><div class="punch"><p>The housing stock explains a great deal. It does not explain District V.</p></div></aside></section><section class="panel" data-panel="09"><div class="mid"><figure class="plate"><img src="charts/P02_S4_09_change_since_2011_v1_1.svg" width="1600" height="1000" style="aspect-ratio:1600/1000" alt="What changed since 2011" loading="lazy"><details class="numbers"><summary>show the numbers</summary><div><p class="basis">Observed, KSH censuses 2011 and 2022, whole districts. Percentage-point change in share.</p><table><thead><tr><th>District</th><th>Under 15</th><th>Age 30 to 49</th><th>Age 65+</th><th>One-person households</th></tr></thead><tbody><tr><th>V</th><td>+1.2</td><td>+6.1</td><td>&minus;2.8</td><td>+5.0</td></tr><tr><th>VI</th><td>+0.7</td><td>+5.2</td><td>&minus;1.4</td><td>+2.8</td></tr><tr><th>VII</th><td>&minus;0.3</td><td>+4.6</td><td>&minus;0.8</td><td>+5.9</td></tr><tr><th>VIII</th><td>&minus;1.3</td><td>+3.0</td><td>+0.3</td><td>+6.6</td></tr><tr><th>IX</th><td>+0.3</td><td>+5.5</td><td>&minus;0.8</td><td>+4.7</td></tr><tr><th>XIII</th><td>+1.6</td><td>+4.7</td><td>+0.4</td><td>+3.9</td></tr><tr><th>Budapest</th><td>+0.3</td><td>+1.8</td><td>+2.3</td><td>+3.5</td></tr></tbody></table></div></details></figure></div><aside class="right"><div class="right-scroll"><div class="right-body"><p class="eyebrow">09 / What actually changed</p><p>Between 2011 and 2022, adults aged thirty to forty-nine grew here about 1.7 to 3.4 times as fast as they grew across Budapest. The over-sixty-five share fell in four of the six districts, while it rose across the city.</p><p>And now the part that does not help me. The child share did not fall. It rose, in four of the six districts. Small rises, from a low base, but rises. It fell in only two.</p><p>So I cannot tell you the families left. I can tell you they were never here in the numbers the city has. The gap did narrow a little over those eleven years, and every bit of that narrowing is District XIII, which already had the most children of the six. In the other five, the child share fell while the city’s rose.</p><p>District VIII is the exception. It is the only one of the six where the child share fell and the older share rose together.</p></div><div class="fade" aria-hidden="true"></div></div><div class="punch"><p>That is a quieter story than an exodus. It is also the true one.</p></div></aside></section><section class="panel panel-full" data-panel="10"><div class="midwrap"><div class="mid"><div class="highlight"><h2>The part that costs me something</h2><p>I could stop here. It would make a tidy page. Everything is close, the children are missing, somebody should look into that.</p><p>But this finding is not aimed at the city. It is aimed at me.</p><p>My whole proposition is that a vehicle you can summon is a vehicle you do not have to store. That works because one shared vehicle does the work of several private ones.</p><p>Our own model of that fleet assumes 1.70 people in a pooled vehicle. Not one. 1.70.</p><p>That number is doing a great deal of work, and this is the page where it gets tested.</p><p>Some of that pooling happens between strangers, and it does work, in every city that has tried it. But the easiest pooling is the kind a household produces without anyone arranging anything. The school run. The weekly shop. The visit to the grandparent. Four people, one vehicle, one journey, no app.</p><p>More than half the homes in these districts hold one person.</p><p>So a fleet here would have to pool strangers to reach a number I have already assumed. I do not know that it can.</p><p>That is not a footnote. It is a risk to my own idea, sitting in the middle of the page where I found it, and I would rather you heard it from me than found it yourself.</p></div></div><div class="fade" aria-hidden="true"></div></div></section><section class="panel panel-full" data-panel="11"><div class="midwrap"><div class="mid"><div class="highlight"><h2>What the numbers leave</h2><p>Everything a life needs is a few minutes away, and the people who would need it most are thin on the ground.</p><p>Not because they left. Because they were never here in the numbers the city has, in a place where up to a third of the homes are under forty square metres.</p><p>Somewhere between eleven thousand and twenty-five thousand parking spaces sit on the ground between these buildings. That is not a measurement. It is the distance between the models, and nobody has ever counted them.</p><p>So the ground under this neighbourhood is doing two things at once. It is holding a population that arrives one person at a time, and it is storing cars.</p><p>That is the question this whole thing turns on.</p><p>Not whether the neighbourhood works. It works.</p><p class="beat">Who it works for.</p></div></div><div class="fade" aria-hidden="true"></div></div></section>
+    </div>
+  </div>
+
+  <footer class="controls">
+    <button class="prev">&larr; Back</button>
+    <span class="pos"></span>
+    <button class="next">Next &rarr;</button>
+  </footer>
+</div>
+
+<script>
+const ORDER = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11"];
+let cur = "01";
+const controls = document.querySelector('.controls');
+const prevBtn = controls.querySelector('.prev');
+const nextBtn = controls.querySelector('.next');
+const posEl = controls.querySelector('.pos');
+
+function updateFades(){
+  document.querySelectorAll('.right-scroll .fade, .midwrap .fade').forEach(f => {
+    const s = f.previousElementSibling;
+    if(!s) return;
+    f.classList.toggle('show', s.scrollHeight - s.scrollTop - s.clientHeight > 2);
+  });
+}
+function go(n){
+  if(!ORDER.includes(n)) return;
+  cur = n;
+  document.querySelectorAll('[data-panel]').forEach(p => p.classList.toggle('is-on', p.dataset.panel===n));
+  document.querySelectorAll('[data-go]').forEach(b => {
+    const on = b.dataset.go===n;
+    b.classList.toggle('is-on', on);
+    if(b.classList.contains('tab')) b.setAttribute('aria-selected', on ? 'true' : 'false');
+    if(b.classList.contains('rail-item')){
+      if(on) b.setAttribute('aria-current','step'); else b.removeAttribute('aria-current');
+    }
+  });
+  document.querySelectorAll('.mid,.right-body').forEach(el => el.scrollTop = 0);
+  paint();
+  updateFades();
+}
+function paint(){
+  const i = ORDER.indexOf(cur);
+  prevBtn.disabled = i===0;
+  nextBtn.disabled = i===ORDER.length-1;
+  posEl.textContent = `${i+1} of ${ORDER.length}`;
+}
+prevBtn.onclick = () => go(ORDER[ORDER.indexOf(cur)-1]);
+nextBtn.onclick = () => go(ORDER[ORDER.indexOf(cur)+1]);
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-go]'); if(b) go(b.dataset.go);
+});
+document.addEventListener('keydown', e => {
+  const i = ORDER.indexOf(cur);
+  if(e.key==='ArrowRight' && i<ORDER.length-1) go(ORDER[i+1]);
+  if(e.key==='ArrowLeft'  && i>0) go(ORDER[i-1]);
+});
+document.querySelectorAll('.right-body,.mid').forEach(el => el.addEventListener('scroll', updateFades));
+window.addEventListener('resize', updateFades);
+paint();
+updateFades();
+</script>
+</body></html>

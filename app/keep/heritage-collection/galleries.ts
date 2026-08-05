@@ -176,6 +176,18 @@ export const heritageGalleries: Record<string, HeritagePlate[]> = {
     {
       "image": "/media/heritage/plates/Danube_Tram_2_Riverfront_Layers_Architectural_Collage_v01.webp",
       "caption": "Evening, and the two levels doing different jobs at the same time — the tram above, the quay below in use as a place rather than a road. The section explains what the photographs cannot: one structure, two publics, stacked."
+    },
+    {
+      "image": "/media/heritage/plates/Danube_Tram_2_Embankment_Working_Infrastructure_Architectural_Collage_v01.webp",
+      "caption": "The Danube embankment once combined tram movement, river trade and warehouse work beneath its cast-iron structure."
+    },
+    {
+      "image": "/media/heritage/plates/Danube_Tram_2_Riveted_Ironwork_Architectural_Collage_v01.webp",
+      "caption": "Riveted ironwork, river-facing doors and arcades reveal the embankment as working infrastructure, not only a promenade."
+    },
+    {
+      "image": "/media/heritage/plates/Danube_Tram_2_Civic_Frontage_Architectural_Collage_v01.webp",
+      "caption": "Tram 2 follows the Danube through Budapest’s civic frontage, linking the city’s monuments with its everyday river edge."
     }
   ],
   "market": [

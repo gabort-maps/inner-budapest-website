@@ -3014,7 +3014,20 @@ body:has(.wlh-page) { overflow: hidden; }
       font: 700 10px/1 var(--mono);
       letter-spacing: .12em;
       text-transform: uppercase;
-    }.change-prototype nav a.active { color: var(--teal); border-color: var(--terra); }.change-prototype .hero { padding: clamp(76px, 10vw, 148px) 0 82px; position: relative; overflow: hidden; }.change-prototype .hero::after {
+    }.change-prototype nav a.active { color: var(--teal); border-color: var(--terra); }.change-prototype .hero {
+      /* The home page also uses .hero. Reset that shared selector so this
+         opening retains the source mock-up's warm paper grid, not its grey
+         image-stage background. */
+      height: auto;
+      min-height: 0;
+      padding: clamp(76px, 10vw, 148px) 0 82px;
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+    }.change-prototype .hero::after {
       content: "CHANGE / 04";
       position: absolute;
       right: -38px;

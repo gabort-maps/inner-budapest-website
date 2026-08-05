@@ -89,11 +89,14 @@ test("renders the Three streets I know landing page with the approved change vis
   const html = await response.text();
   assert.equal(response.status, 200);
   assert.match(html, /Three streets I know/);
-  assert.match(html, /The space exists\. The allocation is the question\./);
+  assert.match(html, /A personal selection\./);
+  assert.match(html, /Corner by corner\./);
+  assert.match(html, /The same contradiction\./);
   assert.match(html, /Parking-free is not access-free\./);
-  assert.match(html, /The bridge stays a dream here\./);
+  assert.match(html, /Examples, not a plan for Budapest\./);
   assert.match(html, /\/media\/change\/three-streets-map-future-bridge-v0-2\.webp/);
   assert.match(html, /\/media\/change\/existing-20m-street-section\.webp/);
+  assert.match(html, /\/media\/change\/falk-miksa-vision\.webp/);
   assert.match(html, /\/media\/change\/pozsonyi-vision\.webp/);
   assert.match(html, /\/media\/change\/katona-vision\.webp/);
 });

@@ -269,18 +269,29 @@ export default function Home() {
         </div>
 
         <div className="change-grid" aria-label="Explore the Change section">
-          {changeCards.map((card, index) => (
-            <article className="change-card is-coming-soon" id={card.id} key={card.id}>
+          {changeCards.map((card, index) => {
+            const cardContent = (
+              <>
               <div className="change-card-image" aria-label={`Image placeholder for ${card.title}`}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
-                <small>In preparation</small>
+                {card.image ? (
+                  <img src={card.image} alt="Map of the three selected streets and future bridge concept" />
+                ) : (
+                  <small>In preparation</small>
+                )}
               </div>
               <div className="change-card-copy">
                 <h3>{card.title}</h3>
                 <p>{card.description}</p>
               </div>
-            </article>
-          ))}
+              </>
+            );
+            return card.href ? (
+              <a className="change-card" id={card.id} href={card.href} key={card.id}>{cardContent}</a>
+            ) : (
+              <article className="change-card is-coming-soon" id={card.id} key={card.id}>{cardContent}</article>
+            );
+          })}
         </div>
       </section>
 

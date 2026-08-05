@@ -2489,7 +2489,7 @@ body:has(.evidence-page) { overflow: hidden; }
   display: block;
   width: 100%;
   height: auto;
-  max-height: calc(100svh - 170px);
+  max-height: min(68svh, calc(100svh - 260px));
   object-fit: contain;
 }
 .heritage-filmstrip-card figcaption {

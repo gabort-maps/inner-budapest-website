@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SiteHeader } from "../../components/SiteHeader";
 import { threeStreetsOpeningMarkup } from "./three-streets-opening-markup";
 
 export const metadata: Metadata = {
@@ -9,10 +10,13 @@ export const metadata: Metadata = {
 
 export default function ThreeStreetsPage() {
   return (
-    <div
-      className="change-prototype"
-      id="top"
-      dangerouslySetInnerHTML={{ __html: threeStreetsOpeningMarkup }}
-    />
+    <>
+      <SiteHeader activeSection="Change" />
+      <div
+        className="change-prototype"
+        id="top"
+        dangerouslySetInnerHTML={{ __html: threeStreetsOpeningMarkup }}
+      />
+    </>
   );
 }

@@ -1,15 +1,6 @@
 // Canonical content from Google Drive: change_three_streets_landing_mockup_v0_2(2).html
 // The source page is static. The five embedded PNGs are delivered as optimized WebP assets in public/media/change.
 export const threeStreetsOpeningMarkup = String.raw`
-  <header class="site-head">
-    <div class="wrap inner">
-      <a class="brand" href="#top" aria-label="Inner Budapest, top of page"><span class="brand-mark" aria-hidden="true"></span><span>INNER BUDAPEST</span></a>
-      <nav aria-label="Main chapters">
-        <a href="/#why">Why</a><a href="/#now">Now</a><a href="/#keep">Keep</a><a class="active" href="#top" aria-current="page">Change</a><a href="/#build">Build</a>
-      </nav>
-    </div>
-  </header>
-
   <main>
     <section class="hero">
       <div class="wrap hero-grid">

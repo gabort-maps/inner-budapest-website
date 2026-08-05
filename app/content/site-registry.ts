@@ -39,7 +39,7 @@ export const keepCards: ChapterCard[] = [
 ];
 
 export const changeCards: ChapterCard[] = [
-  { id: "three-streets-opening", title: "Three streets, opening", description: "The shared ambition and the public-space logic that connect the three street chapters." },
+  { id: "three-streets-opening", title: "Three streets, opening", description: "The shared ambition and the public-space logic that connect the three street chapters.", href: "/change/three-streets", image: "/media/change/three-streets-opening-thumbnail.webp" },
   { id: "katona-jozsef-utca", title: "Katona József utca", description: "A neighbourhood street with a clear opportunity to do more than store cars." },
   { id: "falk-miksa-utca", title: "Falk Miksa utca", description: "A civic street, where a more generous public realm can reinforce its cultural life." },
   { id: "pozsonyi-ut", title: "Pozsonyi út", description: "A mature local high street, ready for a quieter and more useful kerb." },
@@ -81,7 +81,7 @@ export const navigation: Array<{ label: Section; href: string; items: Array<{ la
     label: "Change",
     href: "/#change",
     items: [
-      { label: "Three streets, opening", href: "/#three-streets-opening" },
+      { label: "Three streets I know", href: "/change/three-streets" },
       { label: "Katona József utca", href: "/#katona-jozsef-utca" },
       { label: "Falk Miksa utca", href: "/#falk-miksa-utca" },
       { label: "Pozsonyi út", href: "/#pozsonyi-ut" },

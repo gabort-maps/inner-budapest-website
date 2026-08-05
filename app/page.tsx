@@ -272,10 +272,10 @@ export default function Home() {
           {changeCards.map((card, index) => {
             const cardContent = (
               <>
-              <div className="change-card-image" aria-label={`Image placeholder for ${card.title}`}>
+              <div className="change-card-image" aria-label={`Thumbnail for ${card.title}`}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 {card.image ? (
-                  <img src={card.image} alt="Illustrated portrait of the three Change street chapters" />
+                  <img src={card.image} alt={`Illustrated thumbnail for ${card.title}`} />
                 ) : (
                   <small>In preparation</small>
                 )}

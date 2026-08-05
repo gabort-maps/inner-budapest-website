@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const developmentPreviewMeta =
@@ -101,7 +102,7 @@ test("renders the Three streets I know landing page with the approved change vis
   assert.match(html, /\/media\/change\/katona-vision\.webp/);
 });
 
-test("renders the Falk Miksa Change chapter with its visual assets and three street roles", async () => {
+test("renders the canonical Falk Miksa v0.4 chapter and its complete source structure", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("falk-miksa", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
@@ -119,9 +120,26 @@ test("renders the Falk Miksa Change chapter with its visual assets and three str
   const html = await response.text();
   assert.equal(response.status, 200);
   assert.match(html, /Falk Miksa utca/);
-  assert.match(html, /Local life and antiques commerce before car storage/);
-  assert.match(html, /Local living/);
-  assert.match(html, /Antiques high street/);
-  assert.match(html, /Northern connection/);
-  assert.match(html, /\/media\/change\/falk-miksa\/hero\.webp/);
+  assert.match(html, /\/media\/change\/falk-miksa\/page\.html/);
+
+  const sourcePage = await readFile(
+    new URL("../public/media/change/falk-miksa/page.html", import.meta.url),
+    "utf8",
+  );
+  assert.match(sourcePage, /FALK_MIKSA_CINEMATIC_SUBPAGE_MOCKUP_v0_4/);
+  assert.match(sourcePage, /I was born here/);
+  assert.match(sourcePage, /Three changes, not the same change three times/);
+  assert.match(sourcePage, /Local living/);
+  assert.match(sourcePage, /Antiques high street/);
+  assert.match(sourcePage, /Northern connection/);
+  assert.match(sourcePage, /Where does the Rembrandt go/);
+  assert.match(sourcePage, /The street should still feel inhabited/);
+  assert.match(sourcePage, /From flood defence to gallery street/);
+  assert.doesNotMatch(sourcePage, /<header class="site-head">/);
+  for (let index = 0; index < 18; index += 1) {
+    assert.match(
+      sourcePage,
+      new RegExp(`/media/change/falk-miksa/asset${index}\\.webp`),
+    );
+  }
 });

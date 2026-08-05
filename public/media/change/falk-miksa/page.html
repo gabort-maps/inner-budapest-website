@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="inner-budapest-source" content="FALK_MIKSA_CINEMATIC_SUBPAGE_MOCKUP_v0_4">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Falk Miksa utca, a cinematic standalone street chapter for Inner Budapest.">
+  <title>Falk Miksa utca | Bring daily life back</title>
+  <style>
+    :root {
+      --paper: #f3efe6;
+      --paper-light: #fbf8f1;
+      --paper-dark: #e7dfd1;
+      --ink: #1d292b;
+      --ink-soft: #4e5b5b;
+      --muted: #756f66;
+      --line: rgba(42, 54, 53, .19);
+      --teal: #244c51;
+      --teal-deep: #17383d;
+      --green: #6e9f59;
+      --gold: #e5a52d;
+      --terra: #d96642;
+      --night: #152528;
+      --head: 68px;
+      --sans: Inter, "Helvetica Neue", Arial, sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255,255,255,.76), transparent 29rem),
+        linear-gradient(90deg, rgba(90,76,54,.025) 1px, transparent 1px),
+        linear-gradient(rgba(90,76,54,.025) 1px, transparent 1px),
+        var(--paper);
+      background-size: auto, 22px 22px, 22px 22px, auto;
+      font: 17px/1.62 var(--sans);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; height: auto; }
+    a { color: inherit; }
+    button, input, a { -webkit-tap-highlight-color: transparent; }
+    button, input { font: inherit; }
+    h1, h2, h3, p, figure { margin-top: 0; }
+    figure { margin-left: 0; margin-right: 0; }
+    .wrap { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+    .wide { width: min(1440px, calc(100% - 48px)); margin: 0 auto; }
+    .narrow { max-width: 760px; }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--teal);
+      font: 700 11px/1.2 var(--mono);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .eyebrow.light { color: rgba(255,255,255,.66); }
+    .rule { width: 48px; height: 3px; background: var(--terra); margin: 26px 0; }
+    .lead { color: var(--ink-soft); font-size: clamp(18px, 1.8vw, 22px); line-height: 1.56; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* Original My neighbourhood header, preserved as the site-wide design authority. */
+    .site-head {
+      position: relative;
+      z-index: 20;
+      height: var(--head);
+      border-bottom: 1px solid var(--line);
+      background: #f3ecdf;
+    }
+    .site-head .inner {
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      padding: 0 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .brand {
+      position: relative;
+      height: 100%;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      color: #17383d;
+      font: 600 20px/1 var(--serif);
+    }
+    .brand::after {
+      content: "";
+      position: absolute;
+      left: -64px;
+      right: 0;
+      bottom: -1px;
+      height: 3px;
+      background: #a64f3c;
+    }
+    .site-nav { display: flex; gap: clamp(28px, 3.2vw, 58px); align-items: center; }
+    .site-nav a {
+      padding: 4px 0;
+      color: #17383d;
+      text-decoration: none;
+      font: 700 10px/1 var(--mono);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .site-nav a.has-menu::after {
+      content: "⌄";
+      display: inline-block;
+      margin-left: 8px;
+      transform: translateY(-1px);
+      font-size: 10px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100svh - var(--head));
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      color: #fff;
+      background: var(--night);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: clamp(64px, 9vh, 112px) 0 clamp(50px, 7vh, 78px);
+    }
+    .hero h1 {
+      max-width: 1040px;
+      margin: 0;
+      color: #fff;
+      font: 500 clamp(68px, 10vw, 148px)/.82 var(--serif);
+      letter-spacing: -.065em;
+    }
+    .hero .proposition {
+      margin: 28px 0 0;
+      color: #fff;
+      font: 600 clamp(17px, 2vw, 26px)/1.2 var(--sans);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      background: var(--night);
+    }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(9,20,22,.77) 0%, rgba(9,20,22,.28) 56%, rgba(9,20,22,.08)),
+        linear-gradient(0deg, rgba(9,20,22,.72), transparent 58%);
+    }
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 42px;
+      padding-top: 17px;
+      border-top: 1px solid rgba(255,255,255,.35);
+    }
+    .hero-bottom p {
+      max-width: 720px;
+      margin: 0;
+      color: rgba(255,255,255,.82);
+      font: 400 clamp(17px, 1.6vw, 21px)/1.48 var(--serif);
+    }
+    .scroll-cue {
+      color: rgba(255,255,255,.66);
+      font: 700 9px/1 var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    main > section:not(.hero) { padding: clamp(76px, 9vw, 126px) 0; }
+    h2 {
+      margin-bottom: 24px;
+      font: 500 clamp(40px, 5.5vw, 76px)/.98 var(--serif);
+      letter-spacing: -.048em;
+    }
+    h3 {
+      margin-bottom: 14px;
+      font: 500 clamp(27px, 3.3vw, 46px)/1.05 var(--serif);
+      letter-spacing: -.035em;
+    }
+
+    .personal { background: var(--paper); }
+    .personal-grid {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: clamp(48px, 8vw, 110px);
+      align-items: start;
+    }
+    .personal-note {
+      padding-left: 26px;
+      border-left: 1px solid var(--teal);
+      color: var(--ink-soft);
+      font-size: 15px;
+    }
+    .personal-note strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--ink);
+      font: 500 22px/1.2 var(--serif);
+    }
+
+    .comparison-section { background: var(--paper-light); border-top: 1px solid var(--line); }
+    .comparison-head { max-width: 820px; margin-bottom: clamp(44px, 7vw, 82px); }
+    .comparison-stack { display: grid; gap: clamp(54px, 8vw, 104px); }
+    .comparison-card { max-width: 1100px; margin: 0 auto; }
+    .comparison-copy {
+      display: grid;
+      grid-template-columns: minmax(260px, .75fr) minmax(0, 1.25fr);
+      gap: clamp(34px, 6vw, 84px);
+      align-items: end;
+      margin-bottom: 24px;
+    }
+    .comparison-copy p { margin-bottom: 0; color: var(--ink-soft); }
+    .compare {
+      --position: 50%;
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #d8d3c7;
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 70px rgba(37,44,43,.11);
+    }
+    .compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+    .compare .today { clip-path: inset(0 calc(100% - var(--position)) 0 0); z-index: 2; }
+    .compare-divider {
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      bottom: 0;
+      left: var(--position);
+      width: 2px;
+      transform: translateX(-1px);
+      background: rgba(255,255,255,.96);
+      box-shadow: 0 0 0 1px rgba(23,56,61,.35);
+      pointer-events: none;
+    }
+    .compare-divider::after {
+      content: "↔";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      color: var(--teal-deep);
+      background: rgba(251,248,241,.96);
+      border: 1px solid rgba(23,56,61,.35);
+      font: 700 18px/1 var(--sans);
+    }
+    .compare input[type="range"] {
+      position: absolute;
+      z-index: 5;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      cursor: col-resize;
+      opacity: .001;
+    }
+    .compare:focus-within { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .compare-labels {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding-top: 13px;
+      color: var(--muted);
+      font: 700 10px/1.3 var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .compare-labels span:last-child { color: var(--teal); }
+
+    .identity-intro { background: var(--night); color: #fff; }
+    .identity-intro-grid {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      gap: clamp(48px, 8vw, 110px);
+      align-items: end;
+    }
+    .identity-intro p { color: rgba(255,255,255,.66); }
+    .identity-list { border-top: 1px solid rgba(255,255,255,.22); }
+    .identity-row {
+      display: grid;
+      grid-template-columns: 62px minmax(170px, .8fr) minmax(210px, 1.2fr);
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,.16);
+      align-items: baseline;
+    }
+    .identity-row b { font: 700 11px/1 var(--mono); color: var(--gold); }
+    .identity-row strong { font: 500 26px/1.1 var(--serif); }
+    .identity-row span { color: rgba(255,255,255,.58); font-size: 14px; }
+
+    .identity { background: var(--paper); border-bottom: 1px solid var(--line); }
+    .identity:nth-of-type(even) { background: var(--paper-light); }
+    .identity-head {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: clamp(42px, 7vw, 100px);
+      align-items: end;
+      margin-bottom: 44px;
+    }
+    .identity-number { color: var(--terra); font: 700 11px/1.2 var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+    .identity-head p { margin-bottom: 0; color: var(--ink-soft); font-size: 18px; }
+
+    .film { position: relative; }
+    .film-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .film-count { color: var(--muted); font: 700 10px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+    .film-stage {
+      position: relative;
+    }
+    .film-arrow {
+      position: absolute;
+      z-index: 3;
+      top: 50%;
+      transform: translateY(-50%);
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 1px solid var(--teal);
+      color: #fff;
+      background: var(--teal);
+      cursor: pointer;
+      font-size: 19px;
+    }
+    .film-arrow[data-prev] { left: 16px; }
+    .film-arrow[data-next] { right: 16px; }
+    .film-arrow:hover { background: var(--teal-deep); border-color: var(--teal-deep); }
+    .film-arrow:disabled {
+      color: rgba(36,76,81,.34);
+      background: rgba(243,239,230,.84);
+      border-color: rgba(36,76,81,.22);
+      cursor: default;
+    }
+    .film-arrow:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+    .film-track {
+      display: flex;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      border: 1px solid var(--line);
+      background: transparent;
+    }
+    .film-track::-webkit-scrollbar { display: none; }
+    .film-slide { flex: 0 0 100%; scroll-snap-align: start; margin: 0; background: transparent; }
+    .film-slide img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: min(61svh, 660px);
+      object-fit: contain;
+      background: transparent;
+    }
+    .film-slide figcaption {
+      min-height: 58px;
+      margin: 0;
+      padding: 16px 18px 17px;
+      color: var(--ink-soft);
+      background: var(--paper-light);
+      font-size: 13px;
+    }
+
+    .hypothesis { background: var(--teal-deep); color: #fff; }
+    .hypothesis-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
+      gap: clamp(44px, 7vw, 100px);
+      align-items: center;
+    }
+    .hypothesis img { max-height: 72svh; object-fit: contain; background: #102c30; }
+    .hypothesis p { color: rgba(255,255,255,.72); }
+    .hypothesis .estimate {
+      margin: 30px 0 0;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,.24);
+      border-bottom: 1px solid rgba(255,255,255,.24);
+      color: #fff;
+      font: 500 18px/1.45 var(--serif);
+    }
+    .hypothesis .status { margin-top: 24px; color: rgba(255,255,255,.58); font-size: 13px; }
+
+    .logistics { background: var(--paper-dark); }
+    .logistics-grid {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: clamp(46px, 8vw, 110px);
+      align-items: start;
+    }
+    .logistics-copy { position: sticky; top: 40px; }
+    .logistics-copy p { color: var(--ink-soft); }
+    .logistics-pictures { display: grid; gap: 34px; }
+    .logistics-pictures figure { margin-bottom: 0; }
+    .logistics-pictures img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border: 1px solid var(--line);
+      background: transparent;
+    }
+    .logistics-pictures figcaption { margin-top: 10px; color: var(--muted); font-size: 12px; }
+
+    .evening { background: var(--night); color: #fff; }
+    .evening-head { max-width: 740px; margin-bottom: 46px; }
+    .evening-head p { color: rgba(255,255,255,.64); }
+    .evening .film-track { border-color: rgba(255,255,255,.18); background: transparent; }
+    .evening .film-slide { background: var(--night); }
+    .evening .film-slide img { background: transparent; }
+    .evening .film-slide figcaption { color: rgba(255,255,255,.64); background: var(--night); }
+    .evening .film-arrow { border-color: var(--teal); color: #fff; background: var(--teal); }
+    .evening .film-arrow:hover { background: var(--teal-deep); border-color: var(--teal-deep); }
+    .evening .film-arrow:disabled { border-color: rgba(255,255,255,.22); color: rgba(255,255,255,.3); background: transparent; }
+
+    .history { background: var(--paper-light); }
+    .history-head {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(44px, 8vw, 110px);
+      align-items: end;
+      margin-bottom: 50px;
+    }
+    .history-head p { color: var(--ink-soft); margin-bottom: 0; }
+    .timeline { border-top: 1px solid var(--ink); }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 140px minmax(180px, .65fr) minmax(0, 1.35fr);
+      gap: 28px;
+      padding: 23px 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .timeline-row time { color: var(--terra); font: 700 10px/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+    .timeline-row strong { font: 500 22px/1.2 var(--serif); }
+    .timeline-row p { margin-bottom: 0; color: var(--ink-soft); font-size: 14px; }
+
+    .disclosure { background: var(--paper-dark); padding: 58px 0; border-top: 1px solid var(--line); }
+    .disclosure-grid { display: grid; grid-template-columns: 210px 1fr; gap: 48px; }
+    .disclosure h2 { margin: 0; font: 500 28px/1.1 var(--serif); letter-spacing: -.025em; }
+    .disclosure p { margin-bottom: 0; color: var(--ink-soft); font-size: 14px; }
+
+    .chapter-links { padding: 54px 0 62px; background: var(--paper); }
+    .chapter-links-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .chapter-links a {
+      min-height: 118px;
+      padding: 23px 22px;
+      border-right: 1px solid var(--line);
+      text-decoration: none;
+    }
+    .chapter-links a:last-child { border-right: 0; }
+    .chapter-links a:hover { background: var(--paper-light); }
+    .chapter-links small { display: block; margin-bottom: 14px; color: var(--muted); font: 700 9px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+    .chapter-links strong { font: 500 24px/1.1 var(--serif); }
+
+    @media (min-width: 901px) and (min-height: 760px) {
+      .personal, .identity-intro, .identity, .hypothesis, .logistics, .evening {
+        min-height: calc(100svh - var(--head));
+        display: grid;
+        align-items: center;
+        padding: clamp(28px, 4vh, 52px) 0;
+      }
+      .comparison-card {
+        width: min(1100px, calc((100svh - var(--head) - 250px) * 1.5));
+        min-height: calc(100svh - var(--head));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 24px 0;
+      }
+      .comparison-stack { gap: 24px; }
+      .comparison-copy { margin-bottom: 18px; }
+      .compare { aspect-ratio: 3 / 2; }
+      .identity-head { margin-bottom: clamp(18px, 3vh, 32px); }
+      .film-slide img { height: auto; max-height: min(56svh, 610px); }
+      .hypothesis img { max-height: min(62svh, 620px); }
+      .logistics-grid { align-items: center; }
+      .logistics-copy { position: static; }
+      .logistics-pictures { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+      .logistics-pictures img { width: 100%; height: auto; object-fit: contain; }
+      .evening-head { margin-bottom: 24px; }
+    }
+
+    @media (max-width: 900px) {
+      .personal-grid, .comparison-copy, .identity-intro-grid, .identity-head,
+      .hypothesis-grid, .logistics-grid, .history-head { grid-template-columns: 1fr; }
+      .logistics-copy { position: static; }
+      .identity-row { grid-template-columns: 50px 1fr; }
+      .identity-row span { grid-column: 2; }
+    }
+
+    @media (max-width: 680px) {
+      body { font-size: 16px; }
+      .wrap, .wide { width: min(100% - 30px, 1180px); }
+      :root { --head: 64px; }
+      .site-head .inner { gap: 16px; padding: 0 20px; }
+      .brand { font-size: 16px; }
+      .brand::after { left: -20px; }
+      .site-nav { gap: 12px; }
+      .site-nav a { font-size: 8px; letter-spacing: .04em; }
+      .site-nav a.has-menu::after { display: none; }
+      .site-nav a:nth-child(1), .site-nav a:nth-child(2), .site-nav a:nth-child(3) { display: none; }
+      .hero { min-height: calc(100svh - var(--head)); }
+      .hero-copy { width: min(100% - 30px, 1180px); padding: 54px 0 34px; }
+      .hero h1 { font-size: clamp(58px, 18vw, 96px); }
+      .hero-bottom { display: block; margin-top: 30px; }
+      .scroll-cue { display: block; margin-top: 18px; }
+      main > section:not(.hero) { padding: 68px 0; }
+      .comparison-stack { gap: 64px; }
+      .comparison-copy { margin-bottom: 18px; }
+      .compare-divider::after { width: 40px; height: 40px; }
+      .film-arrow { width: 42px; height: 42px; }
+      .film-arrow[data-prev] { left: 10px; }
+      .film-arrow[data-next] { right: 10px; }
+      .film-slide img { height: auto; max-height: min(58svh, 520px); }
+      .film-slide figcaption { min-height: 72px; }
+      .timeline-row { grid-template-columns: 1fr; gap: 8px; }
+      .disclosure-grid { grid-template-columns: 1fr; gap: 18px; }
+      .chapter-links-grid { grid-template-columns: 1fr; }
+      .chapter-links a { border-right: 0; border-bottom: 1px solid var(--line); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .film-track { scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body id="top">
+<main>
+    <section class="hero" aria-labelledby="page-title">
+      <figure class="hero-media">
+        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset0" alt="Illustrative view of Falk Miksa utca with antique galleries, mature trees and everyday street life">
+      </figure>
+      <div class="hero-copy">
+        <p class="eyebrow light">Street 01 / Lipótváros / approximately 464 m</p>
+        <h1 id="page-title">Falk Miksa utca</h1>
+        <p class="proposition">Bring daily life back.</p>
+        <div class="hero-bottom">
+          <p>One short Budapest street, three different identities. The architecture stays. The ground is asked to work harder.</p>
+          <span class="scroll-cue">Scroll the street ↓</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="personal" aria-labelledby="personal-title">
+      <div class="wrap personal-grid">
+        <div>
+          <p class="eyebrow">Author's note</p>
+          <h2 id="personal-title">I was born here.</h2>
+        </div>
+        <div>
+          <p class="lead">I was born at Falk Miksa utca 4. In my childhood, the street felt primarily residential. Finding a parking place was difficult at night and easier during the working day. Today that rhythm has largely reversed. Galleries and offices animate the street during business hours, but much of it becomes unusually quiet after they close.</p>
+          <div class="personal-note">
+            <strong>The proposition</strong>
+            Cultural life and ordinary daily life should be able to occupy the same address. Removing general parking is the means, not the identity of the street.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="comparison-section" aria-labelledby="comparison-title">
+      <div class="wrap">
+        <div class="comparison-head">
+          <p class="eyebrow">Three comparisons</p>
+          <h2 id="comparison-title">Three changes, not the same change three times.</h2>
+          <p class="lead">Each comparison introduces one part of the street. Drag directly across the image, or use the arrow keys while the image is focused.</p>
+        </div>
+
+        <div class="comparison-stack">
+          <article class="comparison-card">
+            <div class="comparison-copy">
+              <div>
+                <p class="eyebrow">01 / Local living</p>
+                <h3>The corner keeps its shop. It loses its car park.</h3>
+              </div>
+              <p>Same building, same mature trees, same shopfront. The change is the ground, so someone can pause at a window without a parked car between the pavement and the display.</p>
+            </div>
+            <figure>
+              <div class="compare" data-compare>
+                <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset1" alt="Concept view of the Markó utca corner without general parking">
+                <img class="today" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset2" alt="Observed view of the Markó utca corner with parked cars">
+                <span class="compare-divider" aria-hidden="true"></span>
+                <label class="sr-only" for="compare-local">Reveal today and concept views</label>
+                <input id="compare-local" type="range" min="0" max="100" value="50" aria-label="Reveal today and concept views for the local living section">
+              </div>
+              <figcaption class="compare-labels"><span>Today / observed</span><span>Concept</span></figcaption>
+            </figure>
+          </article>
+
+          <article class="comparison-card">
+            <div class="comparison-copy">
+              <div>
+                <p class="eyebrow">02 / Antiques high street</p>
+                <h3>The one place a building changes.</h3>
+              </div>
+              <p>Between Markó utca and Balaton utca, the government complex creates a secured, predominantly daytime frontage. This comparison tests a long-term residential alternative. It is a speculative scenario, not an agreed project.</p>
+            </div>
+            <figure>
+              <div class="compare" data-compare>
+                <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset3" alt="Illustrative residential and daily-needs frontage replacing the government block">
+                <img class="today" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset4" alt="Observed government frontage on Falk Miksa utca">
+                <span class="compare-divider" aria-hidden="true"></span>
+                <label class="sr-only" for="compare-block">Reveal today and concept views</label>
+                <input id="compare-block" type="range" min="0" max="100" value="50" aria-label="Reveal today and concept views for the antiques high street section">
+              </div>
+              <figcaption class="compare-labels"><span>Today / observed</span><span>Concept hypothesis</span></figcaption>
+            </figure>
+          </article>
+
+          <article class="comparison-card">
+            <div class="comparison-copy">
+              <div>
+                <p class="eyebrow">03 / Northern connection</p>
+                <h3>Columbo gets his pavement back.</h3>
+              </div>
+              <p>The statue and mature trees stay. General parking goes. The northern end becomes a clearer cultural threshold to Szent István körút and the visual continuation toward Hollán Ernő utca.</p>
+            </div>
+            <figure>
+              <div class="compare" data-compare>
+                <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset5" alt="Concept view of the northern Falk Miksa public space with clear walking space">
+                <img class="today" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset6" alt="Observed view of the northern Falk Miksa public space with parked vehicles">
+                <span class="compare-divider" aria-hidden="true"></span>
+                <label class="sr-only" for="compare-north">Reveal today and concept views</label>
+                <input id="compare-north" type="range" min="0" max="100" value="50" aria-label="Reveal today and concept views for the northern connection section">
+              </div>
+              <figcaption class="compare-labels"><span>Today / observed</span><span>Concept</span></figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="identity-intro" aria-labelledby="identity-title">
+      <div class="wrap identity-intro-grid">
+        <div>
+          <p class="eyebrow light">The street in three parts</p>
+          <h2 id="identity-title">One short street.<br>Three different roles.</h2>
+        </div>
+        <div class="identity-list" aria-label="Falk Miksa utca sections">
+          <div class="identity-row"><b>01</b><strong>Local living</strong><span>Szalay utca to Markó utca</span></div>
+          <div class="identity-row"><b>02</b><strong>Antiques high street</strong><span>Markó utca to Balaton utca</span></div>
+          <div class="identity-row"><b>03</b><strong>Northern connection</strong><span>Balaton utca to Szent István körút</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="identity" id="local-living" aria-labelledby="local-title">
+      <div class="wide">
+        <div class="identity-head">
+          <div>
+            <p class="identity-number">01 / Szalay utca to Markó utca</p>
+            <h2 id="local-title">Local living</h2>
+          </div>
+          <p>Homes, offices and public institutions share this part of Falk Miksa utca. One-way access remains, while the concept removes general parking and makes clearer room for entrances, short stops, deliveries, walking and slow two-way cycling.</p>
+        </div>
+        <div class="film" data-film>
+          <div class="film-bar">
+            <span class="film-count" aria-live="polite">Frame 1 of 3</span>
+          </div>
+          <div class="film-stage">
+            <button class="film-arrow" type="button" data-prev aria-label="Previous image">←</button>
+            <div class="film-track" tabindex="0" aria-label="Local living image sequence">
+              <figure class="film-slide"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset7" alt="Illustrative autumn arrival in the southern part of Falk Miksa utca"><figcaption>Arrival from the Parliament district: a calm street that still receives people and services.</figcaption></figure>
+              <figure class="film-slide"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset8" alt="Illustrative Falk Miksa street life with galleries, cycling and managed access"><figcaption>Movement and access remain visible. General kerb storage no longer defines the foreground.</figcaption></figure>
+              <figure class="film-slide"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset9" alt="Illustrative low-speed movement and gallery delivery on Falk Miksa utca"><figcaption>Walking, cycling and scheduled delivery share the street at a deliberately low speed.</figcaption></figure>
+            </div>
+            <button class="film-arrow" type="button" data-next aria-label="Next image">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="identity" id="antiques-high-street" aria-labelledby="antiques-title">
+      <div class="wide">
+        <div class="identity-head">
+          <div>
+            <p class="identity-number">02 / Markó utca to Balaton utca</p>
+            <h2 id="antiques-title">Antiques high street</h2>
+          </div>
+          <p>This is Falk Miksa utca's gallery and antiques core. The galleries remain the anchor. The concept removes general parking from display frontages, retains managed access for art and furniture, and tests whether more residents and daily-needs shops could extend activity beyond business hours.</p>
+        </div>
+        <div class="film" data-film>
+          <div class="film-bar">
+            <span class="film-count" aria-live="polite">Frame 1 of 3</span>
+          </div>
+          <div class="film-stage">
+            <button class="film-arrow" type="button" data-prev aria-label="Previous image">←</button>
+            <div class="film-track" tabindex="0" aria-label="Antiques high street image sequence">
+              <figure class="film-slide"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset10" alt="Illustrative lived-in gallery frontage on Falk Miksa utca"><figcaption>Gallery windows, shade and ordinary street life become part of the same walk.</figcaption></figure>
+              <figure class="film-slide"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset11" alt="Illustrative antique gallery life on Falk Miksa utca"><figcaption>The street remains an antiques destination, without asking every visitor to arrive at a shopfront by car.</figcaption></figure>
+              <figure class="film-slide"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset3" alt="Illustrative housing and daily-needs shops at the government block"><figcaption>The government block is the only place where this concept tests a change to the building fabric.</figcaption></figure>
+            </div>
+            <button class="film-arrow" type="button" data-next aria-label="Next image">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hypothesis" aria-labelledby="hypothesis-title">
+      <div class="wide hypothesis-grid">
+        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset3" alt="Illustrative redevelopment hypothesis with housing and daily-needs shops">
+        <div>
+          <p class="eyebrow light">A long-term hypothesis</p>
+          <h2 id="hypothesis-title">Could the government block become housing?</h2>
+          <p>Between Markó utca and Balaton utca, the large government complex occupies an entire block and creates a secured, predominantly daytime frontage along Falk Miksa utca. This page tests relocating those functions and redeveloping the site primarily for housing, with local shops and services at street level.</p>
+          <p class="estimate">An earlier indicative capacity test suggested approximately 1,600 to 1,800 homes and 3,200 to 3,500 residents.</p>
+          <p class="status">This is a speculative scenario, not an agreed project. No discussion has taken place with the government or property owners. Rezoning, heritage, security, servicing, underground access and on-site green-space requirements remain unresolved.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="identity" id="northern-connection" aria-labelledby="north-title">
+      <div class="wide">
+        <div class="identity-head">
+          <div>
+            <p class="identity-number">03 / Balaton utca to Szent István körút</p>
+            <h2 id="north-title">Northern connection</h2>
+          </div>
+          <p>This part already behaves differently. The street ends in a small public space rather than a through carriageway. The concept strengthens it as a quiet cultural connection, preserving the Columbo statue, mature trees and controlled service access.</p>
+        </div>
+        <div class="film" data-film>
+          <div class="film-bar">
+            <span class="film-count" aria-live="polite">Frame 1 of 3</span>
+          </div>
+          <div class="film-stage">
+            <button class="film-arrow" type="button" data-prev aria-label="Previous image">←</button>
+            <div class="film-track" tabindex="0" aria-label="Northern connection image sequence">
+              <figure class="film-slide"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset12" alt="Illustrative daytime cultural public space at the northern end of Falk Miksa utca"><figcaption>A quieter public room around galleries, shade and the existing statue.</figcaption></figure>
+              <figure class="film-slide"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset13" alt="Illustrative everyday community life at the northern end of Falk Miksa utca"><figcaption>The northern end works when residents, gallery visitors and passers-by can share it without spectacle.</figcaption></figure>
+              <figure class="film-slide"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset14" alt="Illustrative evening gateway from Falk Miksa utca to Szent István körút"><figcaption>Szent István körút remains the threshold, with the street visually continuing toward Hollán Ernő utca.</figcaption></figure>
+            </div>
+            <button class="film-arrow" type="button" data-next aria-label="Next image">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="logistics" aria-labelledby="logistics-title">
+      <div class="wide logistics-grid">
+        <div class="logistics-copy">
+          <p class="eyebrow">The practical test</p>
+          <h2 id="logistics-title">Where does the Rembrandt go?</h2>
+          <p class="lead">To the gallery door. Removing general parking does not remove access.</p>
+          <p>Galleries still need booked loading for paintings and furniture, a clear handling route between vehicle and entrance, and continued emergency, waste, passenger and property access. Exact loading locations and operating times require a street survey and agreement with local businesses.</p>
+        </div>
+        <div class="logistics-pictures">
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset9" alt="Illustrative managed gallery delivery on Falk Miksa utca"><figcaption>A delivery is a timed operation, not permanent kerb storage.</figcaption></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset8" alt="Illustrative gallery frontage with clear walking and handling space"><figcaption>The route between vehicle and gallery door must remain short, level and unobstructed.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="evening" aria-labelledby="evening-title">
+      <div class="wide">
+        <div class="evening-head">
+          <p class="eyebrow light">After six</p>
+          <h2 id="evening-title">The street should still feel inhabited.</h2>
+          <p>The objective is simple: Falk Miksa utca should continue to feel alive after offices and galleries close.</p>
+        </div>
+        <div class="film" data-film>
+          <div class="film-bar">
+            <span class="film-count" aria-live="polite">Frame 1 of 3</span>
+          </div>
+          <div class="film-stage">
+            <button class="film-arrow" type="button" data-prev aria-label="Previous image">←</button>
+            <div class="film-track" tabindex="0" aria-label="Falk Miksa evening image sequence">
+              <figure class="film-slide"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset15" alt="Illustrative blue-hour gateway at the northern end of Falk Miksa utca"><figcaption>The street meets the boulevard without turning the northern space into an event venue.</figcaption></figure>
+              <figure class="film-slide"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset16" alt="Illustrative blue-hour view across the tram line at Szent István körút"><figcaption>The tram crossing marks the threshold between Falk Miksa utca and the boulevard.</figcaption></figure>
+              <figure class="film-slide"><img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset17" alt="Illustrative blue-hour gateway from Szent István körút into Falk Miksa utca"><figcaption>At blue hour, the street remains visibly connected to the life of the boulevard.</figcaption></figure>
+            </div>
+            <button class="film-arrow" type="button" data-next aria-label="Next image">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="history" aria-labelledby="history-title">
+      <div class="wrap">
+        <div class="history-head">
+          <div>
+            <p class="eyebrow">Historical epilogue</p>
+            <h2 id="history-title">From flood defence to gallery street</h2>
+          </div>
+          <p>Falk Miksa utca's identity has changed several times. The sequence below provides context. It is not an argument that any particular redesign is inevitable.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-row"><time>Before regulation</time><strong>Új úti védgát</strong><p>The earliest recorded street line was part of a flood-defence edge beside the former river landscape.</p></article>
+          <article class="timeline-row"><time>19th century</time><strong>Pannónia utca, then Nádor utca</strong><p>The street line later carried these names. Today's Falk Miksa utca formed the northern section of Nádor utca.</p></article>
+          <article class="timeline-row"><time>Late 19th century</time><strong>A bourgeois residential street</strong><p>Multi-storey residential buildings established the urban fabric and much of the architectural identity that remains today.</p></article>
+          <article class="timeline-row"><time>1910</time><strong>The Falk Miksa utca name</strong><p>The northern section of Nádor utca received the name Falk Miksa utca. Hollán Ernő utca remains a separate street despite the visual alignment across the boulevard.</p></article>
+          <article class="timeline-row"><time>1944</time><strong>Yellow-star houses</strong><p>Several addresses appeared in the yellow-star house register. These were compulsory residences, not safe houses.</p></article>
+          <article class="timeline-row"><time>1948–50</time><strong>The government complex</strong><p>A secured institutional frontage was inserted into a predominantly residential and commercial street.</p></article>
+          <article class="timeline-row"><time>After 1990</time><strong>The gallery cluster</strong><p>Antique dealers and galleries consolidated around an older BÁV presence, creating the identity for which the street is now widely known.</p></article>
+          <article class="timeline-row"><time>2013–14</time><strong>The northern public space</strong><p>The Szent István körút end was reconstructed as a small public space. The Columbo statue was installed in 2014.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <aside class="disclosure" aria-labelledby="disclosure-title">
+      <div class="wrap disclosure-grid">
+        <h2 id="disclosure-title">What is observed, and what is proposed</h2>
+        <p>The “Today” slider frames are observed source photographs. Future street views are illustrative concepts. The replacement of the government complex is a speculative redevelopment hypothesis, not an approved demolition or development proposal. Precise traffic, loading, tree, access, servicing and development arrangements require survey, engineering, institutional discussion and local consultation.</p>
+      </div>
+    </aside>
+
+    <footer class="chapter-links">
+      <div class="wrap chapter-links-grid">
+        <a href="#top"><small>Back to opening</small><strong>Three streets</strong></a>
+        <a href="#"><small>Street 02</small><strong>Pozsonyi út</strong></a>
+        <a href="#"><small>Street 03</small><strong>Katona József utca</strong></a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+(() => {
+  const assets = {"asset0":"/media/change/falk-miksa/asset0.webp","asset1":"/media/change/falk-miksa/asset1.webp","asset2":"/media/change/falk-miksa/asset2.webp","asset3":"/media/change/falk-miksa/asset3.webp","asset4":"/media/change/falk-miksa/asset4.webp","asset5":"/media/change/falk-miksa/asset5.webp","asset6":"/media/change/falk-miksa/asset6.webp","asset7":"/media/change/falk-miksa/asset7.webp","asset8":"/media/change/falk-miksa/asset8.webp","asset9":"/media/change/falk-miksa/asset9.webp","asset10":"/media/change/falk-miksa/asset10.webp","asset11":"/media/change/falk-miksa/asset11.webp","asset12":"/media/change/falk-miksa/asset12.webp","asset13":"/media/change/falk-miksa/asset13.webp","asset14":"/media/change/falk-miksa/asset14.webp","asset15":"/media/change/falk-miksa/asset15.webp","asset16":"/media/change/falk-miksa/asset16.webp","asset17":"/media/change/falk-miksa/asset17.webp"};
+  document.querySelectorAll('[data-falk-asset]').forEach((image) => {
+    image.src = assets[image.dataset.falkAsset];
+  });
+})();
+</script>
+  <script>
+    (() => {
+      document.querySelectorAll('[data-compare]').forEach((compare) => {
+        const input = compare.querySelector('input[type="range"]');
+        const update = () => compare.style.setProperty('--position', `${input.value}%`);
+        input.addEventListener('input', update);
+        update();
+      });
+
+      document.querySelectorAll('[data-film]').forEach((film) => {
+        const track = film.querySelector('.film-track');
+        const slides = [...film.querySelectorAll('.film-slide')];
+        const count = film.querySelector('.film-count');
+        const prev = film.querySelector('[data-prev]');
+        const next = film.querySelector('[data-next]');
+
+        const activeIndex = () => Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / Math.max(1, track.clientWidth))));
+        const update = () => {
+          const index = activeIndex();
+          count.textContent = `Frame ${index + 1} of ${slides.length}`;
+          prev.disabled = index === 0;
+          next.disabled = index === slides.length - 1;
+        };
+        const move = (delta) => {
+          const index = Math.max(0, Math.min(slides.length - 1, activeIndex() + delta));
+          track.scrollTo({ left: index * track.clientWidth, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        };
+        prev.addEventListener('click', () => move(-1));
+        next.addEventListener('click', () => move(1));
+        track.addEventListener('scroll', update, { passive: true });
+        track.addEventListener('keydown', (event) => {
+          if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
+          if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
+        });
+        window.addEventListener('resize', update, { passive: true });
+        update();
+      });
+    })();
+  </script>
+</body>
+</html>

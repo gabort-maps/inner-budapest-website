@@ -275,7 +275,7 @@ export default function Home() {
               <div className="change-card-image" aria-label={`Image placeholder for ${card.title}`}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 {card.image ? (
-                  <img src={card.image} alt="Map of the three selected streets and future bridge concept" />
+                  <img src={card.image} alt="Illustrated portrait of the three Change street chapters" />
                 ) : (
                   <small>In preparation</small>
                 )}

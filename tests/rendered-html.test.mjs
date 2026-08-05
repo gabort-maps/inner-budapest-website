@@ -57,9 +57,9 @@ test("renders the History and urban development longread with its four approved 
   assert.match(html, /The Ring That Was Nearly a Canal/);
   assert.match(html, /When the kerb changed use/);
   assert.match(html, /Sources and limits/);
-  assert.match(html, /Nyugati exterior/);
-  assert.match(html, /Főnix House v02/);
-  assert.match(html, /Dunapark Houses v02/);
+  assert.match(html, /Nyugati Station/);
+  assert.match(html, /Főnix House/);
+  assert.match(html, /Dunapark Houses/);
   assert.match(html, /\/media\/history\/nyugati-interior\.webp/);
   assert.match(html, /\/media\/history\/nyugati-exterior\.webp/);
   assert.match(html, /\/media\/history\/fonix-house\.webp/);
@@ -99,4 +99,29 @@ test("renders the Three streets I know landing page with the approved change vis
   assert.match(html, /\/media\/change\/falk-miksa-vision\.webp/);
   assert.match(html, /\/media\/change\/pozsonyi-vision\.webp/);
   assert.match(html, /\/media\/change\/katona-vision\.webp/);
+});
+
+test("renders the Falk Miksa Change chapter with its visual assets and three street roles", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("falk-miksa", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+
+  const response = await worker.fetch(
+    new Request("http://localhost/change/falk-miksa", {
+      headers: { accept: "text/html" },
+    }),
+    {
+      ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) },
+    },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+
+  const html = await response.text();
+  assert.equal(response.status, 200);
+  assert.match(html, /Falk Miksa utca/);
+  assert.match(html, /Local life and antiques commerce before car storage/);
+  assert.match(html, /Local living/);
+  assert.match(html, /Antiques high street/);
+  assert.match(html, /Northern connection/);
+  assert.match(html, /\/media\/change\/falk-miksa\/hero\.webp/);
 });

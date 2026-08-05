@@ -46,6 +46,18 @@ export const heritageGalleries: Record<string, HeritagePlate[]> = {
   ],
   "nyugati": [
     {
+      "image": "/media/heritage/plates/Nyugati_Station_Eiffel_Company_Civic_Architecture_v01.webp",
+      "caption": "Nyugati’s vast train shed was built in 1877 by the Eiffel Company, its riveted cast-iron structure turning engineering into civic architecture."
+    },
+    {
+      "image": "/media/heritage/plates/Nyugati_Station_Iron_Glass_City_Life_v02.webp",
+      "caption": "The station’s iron-and-glass hall brought rail, tram and city life together at one of Pest’s most important gateways."
+    },
+    {
+      "image": "/media/heritage/plates/Nyugati_Station_Redevelopment_Train_Shed_v03.webp",
+      "caption": "Current redevelopment plans seek to renew Nyugati as a larger, better-connected station while protecting its historic Eiffel-era structure."
+    },
+    {
       "image": "/media/heritage/nyugati.webp",
       "caption": "The glass frontage on the boulevard"
     },

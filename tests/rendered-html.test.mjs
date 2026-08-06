@@ -138,7 +138,7 @@ test("renders the canonical Falk Miksa v0.4 chapter and its complete source stru
   assert.doesNotMatch(sourcePage, /<header class="site-head">/);
   assert.equal(
     [...sourcePage.matchAll(/class="comparison-card comparison-slider-experiment"/g)].length,
-    1,
+    3,
   );
   assert.match(sourcePage, /\.comparison-slider-experiment \.compare:focus-within \{ outline: none; \}/);
   assert.match(sourcePage, /\.comparison-slider-experiment \.compare img \{[^}]*filter: none;[^}]*opacity: 1;/s);

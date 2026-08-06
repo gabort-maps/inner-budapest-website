@@ -294,6 +294,35 @@
     }
     .compare-labels span:last-child { color: var(--teal); }
 
+    /*
+      One-comparison study. The Local living slider uses the same responsive
+      3:2 image stage as the approved filmstrips, with only a narrow, even
+      surround. The remaining two comparisons retain their canonical layout.
+    */
+    .comparison-slider-experiment .compare {
+      padding: clamp(5px, .55vw, 8px);
+      background: var(--paper-dark);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+    .comparison-slider-experiment .compare img {
+      inset: clamp(5px, .55vw, 8px);
+      width: calc(100% - clamp(10px, 1.1vw, 16px));
+      height: calc(100% - clamp(10px, 1.1vw, 16px));
+      object-fit: cover;
+      filter: none;
+      opacity: 1;
+    }
+    .comparison-slider-experiment .compare-divider {
+      top: clamp(5px, .55vw, 8px);
+      bottom: clamp(5px, .55vw, 8px);
+    }
+    .comparison-slider-experiment .compare:focus-within { outline: none; }
+    .comparison-slider-experiment .compare input[type="range"]:focus,
+    .comparison-slider-experiment .compare input[type="range"]:focus-visible {
+      outline: none;
+    }
+
     .identity-intro { background: var(--night); color: #fff; }
     .identity-intro-grid {
       display: grid;
@@ -548,6 +577,33 @@
       .comparison-stack { gap: 24px; }
       .comparison-copy { margin-bottom: 18px; }
       .compare { aspect-ratio: 3 / 2; }
+      .comparison-slider-experiment {
+        width: min(
+          1320px,
+          calc(102svh + 16px),
+          calc((100svh - 260px) * 1.5 + 16px),
+          calc(100vw - 128px)
+        );
+        min-height: calc(100svh - var(--head));
+        padding-block: 12px;
+      }
+      .comparison-slider-experiment .comparison-copy {
+        grid-template-columns: minmax(360px, 1fr) minmax(0, 1fr);
+        gap: clamp(34px, 4vw, 64px);
+        margin-bottom: 14px;
+      }
+      .comparison-slider-experiment .comparison-copy h3 {
+        font-size: clamp(30px, 2.65vw, 42px);
+      }
+      .comparison-slider-experiment .comparison-copy > p {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+      .comparison-slider-experiment .compare {
+        aspect-ratio: auto;
+        height: calc(min(68svh, calc(100svh - 260px)) + clamp(10px, 1.1vw, 16px) + 2px);
+      }
+      .comparison-slider-experiment .compare-labels { padding-top: 9px; }
       .identity-head { margin-bottom: clamp(18px, 3vh, 32px); }
       .film-slide img { height: auto; max-height: min(56svh, 610px); }
       .hypothesis img { max-height: min(62svh, 620px); }
@@ -652,7 +708,7 @@
         </div>
 
         <div class="comparison-stack">
-          <article class="comparison-card">
+          <article class="comparison-card comparison-slider-experiment">
             <div class="comparison-copy">
               <div>
                 <p class="eyebrow">01 / Local living</p>

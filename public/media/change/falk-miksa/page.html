@@ -327,16 +327,29 @@
     .identity-number { color: var(--terra); font: 700 11px/1.2 var(--mono); letter-spacing: .14em; text-transform: uppercase; }
     .identity-head p { margin-bottom: 0; color: var(--ink-soft); font-size: 18px; }
 
-    .film { position: relative; }
+    /*
+      Biarritz-derived filmstrip treatment.
+      The text and source imagery remain unchanged; only the four cinematic
+      sequences use the larger horizontal gallery geometry.
+    */
+    .film {
+      position: relative;
+      width: 100vw;
+      margin-inline: calc(50% - 50vw);
+    }
     .film-bar {
+      width: min(1440px, calc(100% - 48px));
+      margin: 0 auto 12px;
       display: flex;
       align-items: center;
-      margin-bottom: 12px;
     }
-    .film-count { color: var(--muted); font: 700 10px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
-    .film-stage {
-      position: relative;
+    .film-count {
+      color: var(--muted);
+      font: 700 10px/1 var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
     }
+    .film-stage { position: relative; }
     .film-arrow {
       position: absolute;
       z-index: 3;
@@ -352,10 +365,15 @@
       background: var(--teal);
       cursor: pointer;
       font-size: 19px;
+      transition: background .18s ease, border-color .18s ease, transform .18s ease;
     }
-    .film-arrow[data-prev] { left: 16px; }
-    .film-arrow[data-next] { right: 16px; }
-    .film-arrow:hover { background: var(--teal-deep); border-color: var(--teal-deep); }
+    .film-arrow[data-prev] { left: clamp(10px, 2vw, 32px); }
+    .film-arrow[data-next] { right: clamp(10px, 2vw, 32px); }
+    .film-arrow:not(:disabled):hover {
+      transform: translateY(-50%) scale(1.06);
+      background: var(--teal-deep);
+      border-color: var(--teal-deep);
+    }
     .film-arrow:disabled {
       color: rgba(36,76,81,.34);
       background: rgba(243,239,230,.84);
@@ -365,30 +383,40 @@
     .film-arrow:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
     .film-track {
       display: flex;
+      gap: clamp(12px, 1.2vw, 20px);
       overflow-x: auto;
+      padding: 0 clamp(64px, 4.2vw, 80px) 8px;
+      scroll-padding-inline: clamp(64px, 4.2vw, 80px);
       overscroll-behavior-inline: contain;
       scroll-snap-type: x mandatory;
       scrollbar-width: none;
-      border: 1px solid var(--line);
       background: transparent;
     }
     .film-track::-webkit-scrollbar { display: none; }
-    .film-slide { flex: 0 0 100%; scroll-snap-align: start; margin: 0; background: transparent; }
+    .film-slide {
+      flex: 0 0 min(1320px, calc(100vw - 128px));
+      margin: 0;
+      padding: clamp(5px, .55vw, 8px);
+      border: 1px solid var(--line);
+      scroll-snap-align: start;
+      background: var(--paper-dark);
+    }
     .film-slide img {
       display: block;
       width: 100%;
       height: auto;
-      max-height: min(61svh, 660px);
+      max-height: min(68svh, calc(100svh - 250px));
       object-fit: contain;
       background: transparent;
     }
     .film-slide figcaption {
-      min-height: 58px;
+      min-height: 48px;
       margin: 0;
-      padding: 16px 18px 17px;
+      padding: 10px 4px 2px;
       color: var(--ink-soft);
-      background: var(--paper-light);
-      font-size: 13px;
+      background: transparent;
+      font-size: 12px;
+      line-height: 1.45;
     }
 
     .hypothesis { background: var(--teal-deep); color: #fff; }
@@ -537,11 +565,18 @@
       .comparison-stack { gap: 64px; }
       .comparison-copy { margin-bottom: 18px; }
       .compare-divider::after { width: 40px; height: 40px; }
-      .film-arrow { width: 42px; height: 42px; }
-      .film-arrow[data-prev] { left: 10px; }
-      .film-arrow[data-next] { right: 10px; }
-      .film-slide img { height: auto; max-height: min(58svh, 520px); }
-      .film-slide figcaption { min-height: 72px; }
+      .film-bar { width: min(100% - 30px, 1180px); }
+      .film-track {
+        gap: 10px;
+        padding-inline: 15px;
+        scroll-padding-inline: 15px;
+      }
+      .film-slide { flex-basis: calc(100vw - 30px); padding: 5px; }
+      .film-arrow { top: 40%; width: 42px; height: 42px; }
+      .film-arrow[data-prev] { left: 7px; }
+      .film-arrow[data-next] { right: 7px; }
+      .film-slide img { height: auto; max-height: min(62svh, 560px); }
+      .film-slide figcaption { min-height: 0; font-size: 11px; }
       .timeline-row { grid-template-columns: 1fr; gap: 8px; }
       .disclosure-grid { grid-template-columns: 1fr; gap: 18px; }
       .chapter-links-grid { grid-template-columns: 1fr; }
@@ -865,7 +900,14 @@
         const prev = film.querySelector('[data-prev]');
         const next = film.querySelector('[data-next]');
 
-        const activeIndex = () => Math.max(0, Math.min(slides.length - 1, Math.round(track.scrollLeft / Math.max(1, track.clientWidth))));
+        const activeIndex = () => {
+          const trackLeft = track.getBoundingClientRect().left;
+          const paddingLeft = Number.parseFloat(getComputedStyle(track).paddingLeft) || 0;
+          return slides.reduce((nearest, slide, index) => {
+            const distance = Math.abs(slide.getBoundingClientRect().left - trackLeft - paddingLeft);
+            return distance < nearest.distance ? { index, distance } : nearest;
+          }, { index: 0, distance: Number.POSITIVE_INFINITY }).index;
+        };
         const update = () => {
           const index = activeIndex();
           count.textContent = `Frame ${index + 1} of ${slides.length}`;
@@ -874,7 +916,11 @@
         };
         const move = (delta) => {
           const index = Math.max(0, Math.min(slides.length - 1, activeIndex() + delta));
-          track.scrollTo({ left: index * track.clientWidth, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+          const paddingLeft = Number.parseFloat(getComputedStyle(track).paddingLeft) || 0;
+          track.scrollTo({
+            left: slides[index].offsetLeft - paddingLeft,
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+          });
         };
         prev.addEventListener('click', () => move(-1));
         next.addEventListener('click', () => move(1));

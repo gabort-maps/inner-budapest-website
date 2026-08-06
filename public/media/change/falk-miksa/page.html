@@ -514,8 +514,9 @@
     .logistics-pictures img {
       display: block;
       width: 100%;
+      aspect-ratio: 4 / 3;
       height: auto;
-      object-fit: contain;
+      object-fit: cover;
       border: 1px solid var(--line);
       background: transparent;
     }
@@ -622,7 +623,7 @@
       .logistics-grid { align-items: center; }
       .logistics-copy { position: static; }
       .logistics-pictures { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-      .logistics-pictures img { width: 100%; height: auto; object-fit: contain; }
+      .logistics-pictures img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; }
       .evening-head { margin-bottom: 24px; }
     }
 

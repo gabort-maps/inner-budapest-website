@@ -472,10 +472,23 @@
     .hypothesis-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
-      gap: clamp(44px, 7vw, 100px);
+      gap: clamp(52px, 4vw, 72px);
       align-items: center;
     }
-    .hypothesis img { max-height: 72svh; object-fit: contain; background: #102c30; }
+    .hypothesis-visual {
+      width: 100%;
+      margin: 0;
+      padding: clamp(5px, .45vw, 7px);
+      border: 1px solid rgba(255,255,255,.14);
+      background: #102c30;
+    }
+    .hypothesis-visual img {
+      width: 100%;
+      height: auto;
+      max-height: none;
+      object-fit: contain;
+      background: transparent;
+    }
     .hypothesis p { color: rgba(255,255,255,.72); }
     .hypothesis .estimate {
       margin: 30px 0 0;
@@ -605,7 +618,7 @@
       .comparison-slider-experiment .compare-labels { padding-top: 9px; }
       .identity-head { margin-bottom: clamp(18px, 3vh, 32px); }
       .film-slide img { height: auto; max-height: min(56svh, 610px); }
-      .hypothesis img { max-height: min(62svh, 620px); }
+      .hypothesis-visual img { max-height: none; }
       .logistics-grid { align-items: center; }
       .logistics-copy { position: static; }
       .logistics-pictures { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
@@ -838,7 +851,9 @@
 
     <section class="hypothesis" aria-labelledby="hypothesis-title">
       <div class="wide hypothesis-grid">
-        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset3" alt="Illustrative redevelopment hypothesis with housing and daily-needs shops">
+        <figure class="hypothesis-visual">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset3" alt="Illustrative redevelopment hypothesis with housing and daily-needs shops">
+        </figure>
         <div>
           <p class="eyebrow light">A long-term hypothesis</p>
           <h2 id="hypothesis-title">Could the government block become housing?</h2>

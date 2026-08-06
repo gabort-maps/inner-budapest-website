@@ -136,6 +136,12 @@ test("renders the canonical Falk Miksa v0.4 chapter and its complete source stru
   assert.match(sourcePage, /The street should still feel inhabited/);
   assert.match(sourcePage, /From flood defence to gallery street/);
   assert.doesNotMatch(sourcePage, /<header class="site-head">/);
+  assert.equal(
+    [...sourcePage.matchAll(/class="comparison-card comparison-slider-experiment"/g)].length,
+    3,
+  );
+  assert.match(sourcePage, /\.comparison-slider-experiment \.compare:focus-within \{ outline: none; \}/);
+  assert.match(sourcePage, /\.comparison-slider-experiment \.compare img \{[^}]*filter: none;[^}]*opacity: 1;/s);
   for (let index = 0; index < 18; index += 1) {
     assert.match(
       sourcePage,

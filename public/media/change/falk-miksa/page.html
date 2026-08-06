@@ -294,6 +294,34 @@
     }
     .compare-labels span:last-child { color: var(--teal); }
 
+    /*
+      Approved comparison treatment. All three sliders use the same responsive
+      image stage as the approved filmstrips, with only a narrow, even surround.
+    */
+    .comparison-slider-experiment .compare {
+      padding: clamp(5px, .55vw, 8px);
+      background: var(--paper-dark);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+    .comparison-slider-experiment .compare img {
+      inset: clamp(5px, .55vw, 8px);
+      width: calc(100% - clamp(10px, 1.1vw, 16px));
+      height: calc(100% - clamp(10px, 1.1vw, 16px));
+      object-fit: cover;
+      filter: none;
+      opacity: 1;
+    }
+    .comparison-slider-experiment .compare-divider {
+      top: clamp(5px, .55vw, 8px);
+      bottom: clamp(5px, .55vw, 8px);
+    }
+    .comparison-slider-experiment .compare:focus-within { outline: none; }
+    .comparison-slider-experiment .compare input[type="range"]:focus,
+    .comparison-slider-experiment .compare input[type="range"]:focus-visible {
+      outline: none;
+    }
+
     .identity-intro { background: var(--night); color: #fff; }
     .identity-intro-grid {
       display: grid;
@@ -325,6 +353,7 @@
       margin-bottom: 44px;
     }
     .identity-number { color: var(--terra); font: 700 11px/1.2 var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+    #northern-connection .identity-number { white-space: nowrap; }
     .identity-head p { margin-bottom: 0; color: var(--ink-soft); font-size: 18px; }
 
     /*
@@ -419,14 +448,48 @@
       line-height: 1.45;
     }
 
+    /*
+      All four Falk sequences use the approved Mai Mano visible 3:2 image
+      scale. Each card shrink-wraps the image stage to avoid an empty frame.
+    */
+    @media (min-width: 681px) {
+      .film .film-slide {
+        flex-basis: min(
+          1320px,
+          calc(102svh + 16px),
+          calc((100svh - 260px) * 1.5 + 16px),
+          calc(100vw - 128px)
+        );
+      }
+      .film .film-slide img {
+        max-height: none;
+        height: min(68svh, calc(100svh - 260px));
+        aspect-ratio: 3 / 2;
+        object-fit: contain;
+      }
+    }
+
     .hypothesis { background: var(--teal-deep); color: #fff; }
     .hypothesis-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
-      gap: clamp(44px, 7vw, 100px);
+      gap: clamp(52px, 4vw, 72px);
       align-items: center;
     }
-    .hypothesis img { max-height: 72svh; object-fit: contain; background: #102c30; }
+    .hypothesis-visual {
+      width: 100%;
+      margin: 0;
+      padding: clamp(5px, .45vw, 7px);
+      border: 1px solid rgba(255,255,255,.14);
+      background: #102c30;
+    }
+    .hypothesis-visual img {
+      width: 100%;
+      height: auto;
+      max-height: none;
+      object-fit: contain;
+      background: transparent;
+    }
     .hypothesis p { color: rgba(255,255,255,.72); }
     .hypothesis .estimate {
       margin: 30px 0 0;
@@ -452,8 +515,9 @@
     .logistics-pictures img {
       display: block;
       width: 100%;
+      aspect-ratio: 4 / 3;
       height: auto;
-      object-fit: contain;
+      object-fit: cover;
       border: 1px solid var(--line);
       background: transparent;
     }
@@ -527,13 +591,40 @@
       .comparison-stack { gap: 24px; }
       .comparison-copy { margin-bottom: 18px; }
       .compare { aspect-ratio: 3 / 2; }
+      .comparison-slider-experiment {
+        width: min(
+          1320px,
+          calc(102svh + 16px),
+          calc((100svh - 260px) * 1.5 + 16px),
+          calc(100vw - 128px)
+        );
+        min-height: calc(100svh - var(--head));
+        padding-block: 12px;
+      }
+      .comparison-slider-experiment .comparison-copy {
+        grid-template-columns: minmax(360px, 1fr) minmax(0, 1fr);
+        gap: clamp(34px, 4vw, 64px);
+        margin-bottom: 14px;
+      }
+      .comparison-slider-experiment .comparison-copy h3 {
+        font-size: clamp(30px, 2.65vw, 42px);
+      }
+      .comparison-slider-experiment .comparison-copy > p {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+      .comparison-slider-experiment .compare {
+        aspect-ratio: auto;
+        height: calc(min(68svh, calc(100svh - 260px)) + clamp(10px, 1.1vw, 16px) + 2px);
+      }
+      .comparison-slider-experiment .compare-labels { padding-top: 9px; }
       .identity-head { margin-bottom: clamp(18px, 3vh, 32px); }
       .film-slide img { height: auto; max-height: min(56svh, 610px); }
-      .hypothesis img { max-height: min(62svh, 620px); }
+      .hypothesis-visual img { max-height: none; }
       .logistics-grid { align-items: center; }
       .logistics-copy { position: static; }
       .logistics-pictures { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-      .logistics-pictures img { width: 100%; height: auto; object-fit: contain; }
+      .logistics-pictures img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; }
       .evening-head { margin-bottom: 24px; }
     }
 
@@ -631,7 +722,7 @@
         </div>
 
         <div class="comparison-stack">
-          <article class="comparison-card">
+          <article class="comparison-card comparison-slider-experiment">
             <div class="comparison-copy">
               <div>
                 <p class="eyebrow">01 / Local living</p>
@@ -651,7 +742,7 @@
             </figure>
           </article>
 
-          <article class="comparison-card">
+          <article class="comparison-card comparison-slider-experiment">
             <div class="comparison-copy">
               <div>
                 <p class="eyebrow">02 / Antiques high street</p>
@@ -671,7 +762,7 @@
             </figure>
           </article>
 
-          <article class="comparison-card">
+          <article class="comparison-card comparison-slider-experiment">
             <div class="comparison-copy">
               <div>
                 <p class="eyebrow">03 / Northern connection</p>
@@ -762,7 +853,9 @@
 
     <section class="hypothesis" aria-labelledby="hypothesis-title">
       <div class="wide hypothesis-grid">
-        <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset3" alt="Illustrative redevelopment hypothesis with housing and daily-needs shops">
+        <figure class="hypothesis-visual">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-falk-asset="asset3" alt="Illustrative redevelopment hypothesis with housing and daily-needs shops">
+        </figure>
         <div>
           <p class="eyebrow light">A long-term hypothesis</p>
           <h2 id="hypothesis-title">Could the government block become housing?</h2>

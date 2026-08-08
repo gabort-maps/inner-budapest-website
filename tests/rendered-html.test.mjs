@@ -149,3 +149,57 @@ test("renders the canonical Falk Miksa v0.4 chapter and its complete source stru
     );
   }
 });
+
+test("renders the Pozsonyi út v1.1 chapter with its complete approved structure", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("pozsonyi", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+
+  const response = await worker.fetch(
+    new Request("http://localhost/change/pozsonyi", {
+      headers: { accept: "text/html" },
+    }),
+    {
+      ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) },
+    },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+
+  const html = await response.text();
+  assert.equal(response.status, 200);
+  assert.match(html, /Pozsonyi út/);
+  assert.match(html, /\/media\/change\/pozsonyi\/page\.html/);
+
+  const sourcePage = await readFile(
+    new URL("../public/media/change/pozsonyi/page.html", import.meta.url),
+    "utf8",
+  );
+  assert.match(sourcePage, /POZSONYI_SUBPAGE_BUILDER_PACKAGE_v1_1/);
+  assert.match(sourcePage, /Make room for what works\./);
+  assert.match(sourcePage, /The same street, with storage removed\./);
+  assert.match(sourcePage, /One short street[\s\S]*Three different roles\./);
+  assert.match(sourcePage, /The quieter end/);
+  assert.match(sourcePage, /The civic centre/);
+  assert.match(sourcePage, /The busiest part/);
+  assert.match(sourcePage, /Yes, but where does the fridge go\?/);
+  assert.match(sourcePage, /From Upper Quay to neighbourhood high street/);
+  assert.match(sourcePage, /What is observed, and what is illustrative/);
+  assert.equal([...sourcePage.matchAll(/data-compare>/g)].length, 1);
+  assert.equal([...sourcePage.matchAll(/data-film>/g)].length, 2);
+  assert.doesNotMatch(sourcePage, /<header class="site-head">/);
+  for (const asset of [
+    "opening-park-edge-hero.webp",
+    "slider-today.webp",
+    "slider-concept.webp",
+    "southern-blue-hour.webp",
+    "southern-cargo-delivery.webp",
+    "park-dunapark-trolleybus.webp",
+    "park-to-sarki-fuszeres.webp",
+    "northern-residential-church.webp",
+    "northern-service-delivery.webp",
+    "northern-waste.webp",
+    "corridor-editorial-rail.svg",
+  ]) {
+    assert.match(sourcePage, new RegExp(`/media/change/pozsonyi/${asset.replace(".", "\\.")}`));
+  }
+});

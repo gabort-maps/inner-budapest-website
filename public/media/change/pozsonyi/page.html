@@ -1,0 +1,1039 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="inner-budapest-source" content="POZSONYI_SUBPAGE_BUILDER_PACKAGE_v1_1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pozsonyi út, a working neighbourhood high street with more room for everyday life.">
+  <title>Pozsonyi út | Make room for what works</title>
+  <style>
+    :root {
+      --paper: #f3efe6;
+      --paper-light: #fbf8f1;
+      --paper-dark: #e7dfd1;
+      --ink: #1d292b;
+      --ink-soft: #4e5b5b;
+      --muted: #756f66;
+      --line: rgba(42, 54, 53, .19);
+      --teal: #244c51;
+      --teal-deep: #17383d;
+      --green: #6e9f59;
+      --gold: #e5a52d;
+      --terra: #d96642;
+      --night: #152528;
+      --head: 68px;
+      --sans: Inter, "Helvetica Neue", Arial, sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255,255,255,.76), transparent 29rem),
+        linear-gradient(90deg, rgba(90,76,54,.025) 1px, transparent 1px),
+        linear-gradient(rgba(90,76,54,.025) 1px, transparent 1px),
+        var(--paper);
+      background-size: auto, 22px 22px, 22px 22px, auto;
+      font: 17px/1.62 var(--sans);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; height: auto; }
+    a { color: inherit; }
+    button, input, a { -webkit-tap-highlight-color: transparent; }
+    button, input { font: inherit; }
+    h1, h2, h3, p, figure { margin-top: 0; }
+    figure { margin-left: 0; margin-right: 0; }
+    .wrap { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
+    .wide { width: min(1440px, calc(100% - 48px)); margin: 0 auto; }
+    .narrow { max-width: 760px; }
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--teal);
+      font: 700 11px/1.2 var(--mono);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .eyebrow.light { color: rgba(255,255,255,.66); }
+    .rule { width: 48px; height: 3px; background: var(--terra); margin: 26px 0; }
+    .lead { color: var(--ink-soft); font-size: clamp(18px, 1.8vw, 22px); line-height: 1.56; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* Original My neighbourhood header, preserved as the site-wide design authority. */
+    .site-head {
+      position: relative;
+      z-index: 20;
+      height: var(--head);
+      border-bottom: 1px solid var(--line);
+      background: #f3ecdf;
+    }
+    .site-head .inner {
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      padding: 0 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .brand {
+      position: relative;
+      height: 100%;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      color: #17383d;
+      font: 600 20px/1 var(--serif);
+    }
+    .brand::after {
+      content: "";
+      position: absolute;
+      left: -64px;
+      right: 0;
+      bottom: -1px;
+      height: 3px;
+      background: #a64f3c;
+    }
+    .site-nav { display: flex; gap: clamp(28px, 3.2vw, 58px); align-items: center; }
+    .site-nav a {
+      padding: 4px 0;
+      color: #17383d;
+      text-decoration: none;
+      font: 700 10px/1 var(--mono);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .site-nav a.has-menu::after {
+      content: "⌄";
+      display: inline-block;
+      margin-left: 8px;
+      transform: translateY(-1px);
+      font-size: 10px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100svh - var(--head));
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      color: #fff;
+      background: var(--night);
+      border-bottom: 1px solid var(--line);
+    }
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: clamp(64px, 9vh, 112px) 0 clamp(50px, 7vh, 78px);
+    }
+    .hero h1 {
+      max-width: 1040px;
+      margin: 0;
+      color: #fff;
+      font: 500 clamp(68px, 10vw, 148px)/.82 var(--serif);
+      letter-spacing: -.065em;
+    }
+    .hero .proposition {
+      margin: 28px 0 0;
+      color: #fff;
+      font: 600 clamp(17px, 2vw, 26px)/1.2 var(--sans);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .hero-media {
+      position: absolute;
+      inset: 0;
+      margin: 0;
+      background: var(--night);
+    }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(9,20,22,.77) 0%, rgba(9,20,22,.28) 56%, rgba(9,20,22,.08)),
+        linear-gradient(0deg, rgba(9,20,22,.72), transparent 58%);
+    }
+    .hero-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+      margin-top: 42px;
+      padding-top: 17px;
+      border-top: 1px solid rgba(255,255,255,.35);
+    }
+    .hero-bottom p {
+      max-width: 720px;
+      margin: 0;
+      color: rgba(255,255,255,.82);
+      font: 400 clamp(17px, 1.6vw, 21px)/1.48 var(--serif);
+    }
+    .scroll-cue {
+      color: rgba(255,255,255,.66);
+      font: 700 9px/1 var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    main > section:not(.hero) { padding: clamp(76px, 9vw, 126px) 0; }
+    h2 {
+      margin-bottom: 24px;
+      font: 500 clamp(40px, 5.5vw, 76px)/.98 var(--serif);
+      letter-spacing: -.048em;
+    }
+    h3 {
+      margin-bottom: 14px;
+      font: 500 clamp(27px, 3.3vw, 46px)/1.05 var(--serif);
+      letter-spacing: -.035em;
+    }
+
+    .personal { background: var(--paper); }
+    .personal-grid {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: clamp(48px, 8vw, 110px);
+      align-items: start;
+    }
+    .personal-note {
+      padding-left: 26px;
+      border-left: 1px solid var(--teal);
+      color: var(--ink-soft);
+      font-size: 15px;
+    }
+    .personal-note strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--ink);
+      font: 500 22px/1.2 var(--serif);
+    }
+
+    .comparison-section { background: var(--paper-light); border-top: 1px solid var(--line); }
+    .comparison-head { max-width: 820px; margin-bottom: clamp(44px, 7vw, 82px); }
+    .comparison-stack { display: grid; gap: clamp(54px, 8vw, 104px); }
+    .comparison-card { max-width: 1100px; margin: 0 auto; }
+    .comparison-copy {
+      display: grid;
+      grid-template-columns: minmax(260px, .75fr) minmax(0, 1.25fr);
+      gap: clamp(34px, 6vw, 84px);
+      align-items: end;
+      margin-bottom: 24px;
+    }
+    .comparison-copy p { margin-bottom: 0; color: var(--ink-soft); }
+    .compare {
+      --position: 50%;
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #d8d3c7;
+      border: 1px solid var(--line);
+      box-shadow: 0 24px 70px rgba(37,44,43,.11);
+    }
+    .compare img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+    .compare .today { clip-path: inset(0 calc(100% - var(--position)) 0 0); z-index: 2; }
+    .compare-divider {
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      bottom: 0;
+      left: var(--position);
+      width: 2px;
+      transform: translateX(-1px);
+      background: rgba(255,255,255,.96);
+      box-shadow: 0 0 0 1px rgba(23,56,61,.35);
+      pointer-events: none;
+    }
+    .compare-divider::after {
+      content: "↔";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      color: var(--teal-deep);
+      background: rgba(251,248,241,.96);
+      border: 1px solid rgba(23,56,61,.35);
+      font: 700 18px/1 var(--sans);
+    }
+    .compare input[type="range"] {
+      position: absolute;
+      z-index: 5;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      cursor: col-resize;
+      opacity: .001;
+    }
+    .compare:focus-within { outline: 3px solid var(--gold); outline-offset: 4px; }
+    .compare-labels {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding-top: 13px;
+      color: var(--muted);
+      font: 700 10px/1.3 var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .compare-labels span:last-child { color: var(--teal); }
+
+    /*
+      Approved comparison treatment. All three sliders use the same responsive
+      image stage as the approved filmstrips, with only a narrow, even surround.
+    */
+    .comparison-slider-experiment .compare {
+      padding: clamp(5px, .55vw, 8px);
+      background: var(--paper-dark);
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+    .comparison-slider-experiment .compare img {
+      inset: clamp(5px, .55vw, 8px);
+      width: calc(100% - clamp(10px, 1.1vw, 16px));
+      height: calc(100% - clamp(10px, 1.1vw, 16px));
+      object-fit: cover;
+      filter: none;
+      opacity: 1;
+    }
+    .comparison-slider-experiment .compare-divider {
+      top: clamp(5px, .55vw, 8px);
+      bottom: clamp(5px, .55vw, 8px);
+    }
+    .comparison-slider-experiment .compare:focus-within { outline: none; }
+    .comparison-slider-experiment .compare input[type="range"]:focus,
+    .comparison-slider-experiment .compare input[type="range"]:focus-visible {
+      outline: none;
+    }
+
+    .identity-intro { background: var(--night); color: #fff; }
+    .identity-intro-grid {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      gap: clamp(48px, 8vw, 110px);
+      align-items: end;
+    }
+    .identity-intro p { color: rgba(255,255,255,.66); }
+    .identity-list { border-top: 1px solid rgba(255,255,255,.22); }
+    .identity-row {
+      display: grid;
+      grid-template-columns: 62px minmax(170px, .8fr) minmax(210px, 1.2fr);
+      gap: 24px;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(255,255,255,.16);
+      align-items: baseline;
+    }
+    .identity-row b { font: 700 11px/1 var(--mono); color: var(--gold); }
+    .identity-row strong { font: 500 26px/1.1 var(--serif); }
+    .identity-row span { color: rgba(255,255,255,.58); font-size: 14px; }
+
+    .identity { background: var(--paper); border-bottom: 1px solid var(--line); }
+    .identity:nth-of-type(even) { background: var(--paper-light); }
+    .identity-head {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: clamp(42px, 7vw, 100px);
+      align-items: end;
+      margin-bottom: 44px;
+    }
+    .identity-number { color: var(--terra); font: 700 11px/1.2 var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+    #northern-connection .identity-number { white-space: nowrap; }
+    .identity-head p { margin-bottom: 0; color: var(--ink-soft); font-size: 18px; }
+
+    /*
+      Biarritz-derived filmstrip treatment.
+      The text and source imagery remain unchanged; only the four cinematic
+      sequences use the larger horizontal gallery geometry.
+    */
+    .film {
+      position: relative;
+      width: 100vw;
+      margin-inline: calc(50% - 50vw);
+    }
+    .film-bar {
+      width: min(1440px, calc(100% - 48px));
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+    }
+    .film-count {
+      color: var(--muted);
+      font: 700 10px/1 var(--mono);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .film-stage { position: relative; }
+    .film-arrow {
+      position: absolute;
+      z-index: 3;
+      top: 50%;
+      transform: translateY(-50%);
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      padding: 0;
+      border: 1px solid var(--teal);
+      color: #fff;
+      background: var(--teal);
+      cursor: pointer;
+      font-size: 19px;
+      transition: background .18s ease, border-color .18s ease, transform .18s ease;
+    }
+    .film-arrow[data-prev] { left: clamp(10px, 2vw, 32px); }
+    .film-arrow[data-next] { right: clamp(10px, 2vw, 32px); }
+    .film-arrow:not(:disabled):hover {
+      transform: translateY(-50%) scale(1.06);
+      background: var(--teal-deep);
+      border-color: var(--teal-deep);
+    }
+    .film-arrow:disabled {
+      color: rgba(36,76,81,.34);
+      background: rgba(243,239,230,.84);
+      border-color: rgba(36,76,81,.22);
+      cursor: default;
+    }
+    .film-arrow:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+    .film-track {
+      display: flex;
+      gap: clamp(12px, 1.2vw, 20px);
+      overflow-x: auto;
+      padding: 0 clamp(64px, 4.2vw, 80px) 8px;
+      scroll-padding-inline: clamp(64px, 4.2vw, 80px);
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      background: transparent;
+    }
+    .film-track::-webkit-scrollbar { display: none; }
+    .film-slide {
+      flex: 0 0 min(1320px, calc(100vw - 128px));
+      margin: 0;
+      padding: clamp(5px, .55vw, 8px);
+      border: 1px solid var(--line);
+      scroll-snap-align: start;
+      background: var(--paper-dark);
+    }
+    .film-slide img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: min(68svh, calc(100svh - 250px));
+      object-fit: contain;
+      background: transparent;
+    }
+    .film-slide figcaption {
+      min-height: 48px;
+      margin: 0;
+      padding: 10px 4px 2px;
+      color: var(--ink-soft);
+      background: transparent;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    /*
+      All four Falk sequences use the approved Mai Mano visible 3:2 image
+      scale. Each card shrink-wraps the image stage to avoid an empty frame.
+    */
+    @media (min-width: 681px) {
+      .film .film-slide {
+        flex-basis: min(
+          1320px,
+          calc(102svh + 16px),
+          calc((100svh - 260px) * 1.5 + 16px),
+          calc(100vw - 128px)
+        );
+      }
+      .film .film-slide img {
+        max-height: none;
+        height: min(68svh, calc(100svh - 260px));
+        aspect-ratio: 3 / 2;
+        object-fit: contain;
+      }
+    }
+
+    .hypothesis { background: var(--teal-deep); color: #fff; }
+    .hypothesis-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
+      gap: clamp(52px, 4vw, 72px);
+      align-items: center;
+    }
+    .hypothesis-visual {
+      width: 100%;
+      margin: 0;
+      padding: clamp(5px, .45vw, 7px);
+      border: 1px solid rgba(255,255,255,.14);
+      background: #102c30;
+    }
+    .hypothesis-visual img {
+      width: 100%;
+      height: auto;
+      max-height: none;
+      object-fit: contain;
+      background: transparent;
+    }
+    .hypothesis p { color: rgba(255,255,255,.72); }
+    .hypothesis .estimate {
+      margin: 30px 0 0;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,.24);
+      border-bottom: 1px solid rgba(255,255,255,.24);
+      color: #fff;
+      font: 500 18px/1.45 var(--serif);
+    }
+    .hypothesis .status { margin-top: 24px; color: rgba(255,255,255,.58); font-size: 13px; }
+
+    .logistics { background: var(--paper-dark); }
+    .logistics-grid {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: clamp(46px, 8vw, 110px);
+      align-items: start;
+    }
+    .logistics-copy { position: sticky; top: 40px; }
+    .logistics-copy p { color: var(--ink-soft); }
+    .logistics-pictures { display: grid; gap: 34px; }
+    .logistics-pictures figure { margin-bottom: 0; }
+    .logistics-pictures img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      height: auto;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      background: transparent;
+    }
+    .logistics-pictures figcaption { margin-top: 10px; color: var(--muted); font-size: 12px; }
+
+    .evening { background: var(--night); color: #fff; }
+    .evening-head { max-width: 740px; margin-bottom: 46px; }
+    .evening-head p { color: rgba(255,255,255,.64); }
+    .evening .film-track { border-color: rgba(255,255,255,.18); background: transparent; }
+    .evening .film-slide { background: var(--night); }
+    .evening .film-slide img { background: transparent; }
+    .evening .film-slide figcaption { color: rgba(255,255,255,.64); background: var(--night); }
+    .evening .film-arrow { border-color: var(--teal); color: #fff; background: var(--teal); }
+    .evening .film-arrow:hover { background: var(--teal-deep); border-color: var(--teal-deep); }
+    .evening .film-arrow:disabled { border-color: rgba(255,255,255,.22); color: rgba(255,255,255,.3); background: transparent; }
+
+    .history { background: var(--paper-light); }
+    .history-head {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: clamp(44px, 8vw, 110px);
+      align-items: end;
+      margin-bottom: 50px;
+    }
+    .history-head p { color: var(--ink-soft); margin-bottom: 0; }
+    .timeline { border-top: 1px solid var(--ink); }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 140px minmax(180px, .65fr) minmax(0, 1.35fr);
+      gap: 28px;
+      padding: 23px 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .timeline-row time { color: var(--terra); font: 700 10px/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+    .timeline-row strong { font: 500 22px/1.2 var(--serif); }
+    .timeline-row p { margin-bottom: 0; color: var(--ink-soft); font-size: 14px; }
+
+    .disclosure { background: var(--paper-dark); padding: 58px 0; border-top: 1px solid var(--line); }
+    .disclosure-grid { display: grid; grid-template-columns: 210px 1fr; gap: 48px; }
+    .disclosure h2 { margin: 0; font: 500 28px/1.1 var(--serif); letter-spacing: -.025em; }
+    .disclosure p { margin-bottom: 0; color: var(--ink-soft); font-size: 14px; }
+
+    .chapter-links { padding: 54px 0 62px; background: var(--paper); }
+    .chapter-links-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .chapter-links a {
+      min-height: 118px;
+      padding: 23px 22px;
+      border-right: 1px solid var(--line);
+      text-decoration: none;
+    }
+    .chapter-links a:last-child { border-right: 0; }
+    .chapter-links a:hover { background: var(--paper-light); }
+    .chapter-links small { display: block; margin-bottom: 14px; color: var(--muted); font: 700 9px/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+    .chapter-links strong { font: 500 24px/1.1 var(--serif); }
+
+    @media (min-width: 901px) and (min-height: 760px) {
+      .personal, .identity-intro, .identity, .hypothesis, .logistics, .evening {
+        min-height: calc(100svh - var(--head));
+        display: grid;
+        align-items: center;
+        padding: clamp(28px, 4vh, 52px) 0;
+      }
+      .comparison-card {
+        width: min(1100px, calc((100svh - var(--head) - 250px) * 1.5));
+        min-height: calc(100svh - var(--head));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 24px 0;
+      }
+      .comparison-stack { gap: 24px; }
+      .comparison-copy { margin-bottom: 18px; }
+      .compare { aspect-ratio: 3 / 2; }
+      .comparison-slider-experiment {
+        width: min(
+          1320px,
+          calc(102svh + 16px),
+          calc((100svh - 260px) * 1.5 + 16px),
+          calc(100vw - 128px)
+        );
+        min-height: calc(100svh - var(--head));
+        padding-block: 12px;
+      }
+      .comparison-slider-experiment .comparison-copy {
+        grid-template-columns: minmax(360px, 1fr) minmax(0, 1fr);
+        gap: clamp(34px, 4vw, 64px);
+        margin-bottom: 14px;
+      }
+      .comparison-slider-experiment .comparison-copy h3 {
+        font-size: clamp(30px, 2.65vw, 42px);
+      }
+      .comparison-slider-experiment .comparison-copy > p {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+      .comparison-slider-experiment .compare {
+        aspect-ratio: auto;
+        height: calc(min(68svh, calc(100svh - 260px)) + clamp(10px, 1.1vw, 16px) + 2px);
+      }
+      .comparison-slider-experiment .compare-labels { padding-top: 9px; }
+      .identity-head { margin-bottom: clamp(18px, 3vh, 32px); }
+      .film-slide img { height: auto; max-height: min(56svh, 610px); }
+      .hypothesis-visual img { max-height: none; }
+      .logistics-grid { align-items: center; }
+      .logistics-copy { position: static; }
+      .logistics-pictures { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+      .logistics-pictures img { width: 100%; aspect-ratio: 4 / 3; height: auto; object-fit: cover; }
+      .evening-head { margin-bottom: 24px; }
+    }
+
+    @media (max-width: 900px) {
+      .personal-grid, .comparison-copy, .identity-intro-grid, .identity-head,
+      .hypothesis-grid, .logistics-grid, .history-head { grid-template-columns: 1fr; }
+      .logistics-copy { position: static; }
+      .identity-row { grid-template-columns: 50px 1fr; }
+      .identity-row span { grid-column: 2; }
+    }
+
+    @media (max-width: 680px) {
+      body { font-size: 16px; }
+      .wrap, .wide { width: min(100% - 30px, 1180px); }
+      :root { --head: 64px; }
+      .site-head .inner { gap: 16px; padding: 0 20px; }
+      .brand { font-size: 16px; }
+      .brand::after { left: -20px; }
+      .site-nav { gap: 12px; }
+      .site-nav a { font-size: 8px; letter-spacing: .04em; }
+      .site-nav a.has-menu::after { display: none; }
+      .site-nav a:nth-child(1), .site-nav a:nth-child(2), .site-nav a:nth-child(3) { display: none; }
+      .hero { min-height: calc(100svh - var(--head)); }
+      .hero-copy { width: min(100% - 30px, 1180px); padding: 54px 0 34px; }
+      .hero h1 { font-size: clamp(58px, 18vw, 96px); }
+      .hero-bottom { display: block; margin-top: 30px; }
+      .scroll-cue { display: block; margin-top: 18px; }
+      main > section:not(.hero) { padding: 68px 0; }
+      .comparison-stack { gap: 64px; }
+      .comparison-copy { margin-bottom: 18px; }
+      .compare-divider::after { width: 40px; height: 40px; }
+      .film-bar { width: min(100% - 30px, 1180px); }
+      .film-track {
+        gap: 10px;
+        padding-inline: 15px;
+        scroll-padding-inline: 15px;
+      }
+      .film-slide { flex-basis: calc(100vw - 30px); padding: 5px; }
+      .film-arrow { top: 40%; width: 42px; height: 42px; }
+      .film-arrow[data-prev] { left: 7px; }
+      .film-arrow[data-next] { right: 7px; }
+      .film-slide img { height: auto; max-height: min(62svh, 560px); }
+      .film-slide figcaption { min-height: 0; font-size: 11px; }
+      .timeline-row { grid-template-columns: 1fr; gap: 8px; }
+      .disclosure-grid { grid-template-columns: 1fr; gap: 18px; }
+      .chapter-links-grid { grid-template-columns: 1fr; }
+      .chapter-links a { border-right: 0; border-bottom: 1px solid var(--line); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .film-track { scroll-behavior: auto !important; }
+    }
+  
+    /* Pozsonyi content follows the frozen Falk component system. */
+    .pozsonyi-page .hero { min-height: 100svh; }
+    .pozsonyi-page .hero-media::after {
+      background: linear-gradient(0deg, rgba(9,20,22,.78) 0%, rgba(9,20,22,.35) 32%, transparent 70%);
+    }
+    .pozsonyi-page .hero-bottom { justify-content: flex-end; }
+    .pozsonyi-page .personal-copy p { color: var(--ink-soft); }
+    .pozsonyi-page .personal-copy .lead { color: var(--ink); }
+    .pozsonyi-page .comparison-section { padding: clamp(32px, 5vh, 54px) 0; }
+    .pozsonyi-page .comparison-head { max-width: 1180px; margin-bottom: clamp(20px, 3vh, 30px); }
+    .pozsonyi-page .comparison-head h2 { font-size: clamp(40px, 4.8vw, 66px); }
+    .pozsonyi-page .comparison-head .lead { max-width: 980px; margin-bottom: 0; }
+    .pozsonyi-page .comparison-card { width: min(800px, calc(100% - 16px)); min-height: 0; padding: 0; }
+    .pozsonyi-page .comparison-slider-experiment { width: min(800px, calc(100% - 16px)); min-height: 0; padding: 0; }
+    .pozsonyi-page .comparison-slider-experiment .compare {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 3;
+    }
+    .pozsonyi-page .route-intro-grid { align-items: center; }
+    .pozsonyi-page .route-copy p { max-width: 34ch; }
+    .pozsonyi-page .route-rail {
+      margin: 0;
+      padding: clamp(5px, .55vw, 8px);
+      background: var(--paper-dark);
+      border: 1px solid rgba(255,255,255,.18);
+    }
+    .pozsonyi-page .route-rail img {
+      width: 100%;
+      max-height: min(76svh, 860px);
+      object-fit: contain;
+    }
+    .pozsonyi-page .identity-head-copy p { margin-bottom: 18px; }
+    .pozsonyi-page .identity-head-copy p:last-child { margin-bottom: 0; }
+    .pozsonyi-page .single-scene {
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: clamp(5px, .55vw, 8px);
+      background: var(--paper-dark);
+      border: 1px solid var(--line);
+    }
+    .pozsonyi-page .single-scene img {
+      width: auto;
+      max-width: 100%;
+      height: min(68svh, 590px);
+      max-height: min(68svh, 590px);
+      object-fit: contain;
+      filter: none;
+      opacity: 1;
+    }
+    .pozsonyi-page .single-scene figcaption {
+      margin: 0;
+      padding: 10px 4px 2px;
+      color: var(--ink-soft);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .pozsonyi-page .southern-high-street { color: #fff; background: var(--night); }
+    .pozsonyi-page .southern-high-street .identity-head p { color: rgba(255,255,255,.7); }
+    .pozsonyi-page .southern-high-street .identity-number { color: var(--gold); }
+    .pozsonyi-page .southern-high-street .single-scene {
+      background: #102c30;
+      border-color: rgba(255,255,255,.16);
+    }
+    .pozsonyi-page .southern-high-street .single-scene figcaption { color: rgba(255,255,255,.68); }
+    .pozsonyi-page .operational-section { background: var(--paper-dark); }
+    .pozsonyi-page .operational-note {
+      width: min(900px, calc(100% - 48px));
+      margin: 28px auto 0;
+      padding: 22px 0 0;
+      color: var(--ink-soft);
+      border-top: 1px solid var(--line);
+    }
+    .pozsonyi-page .history-closing {
+      max-width: 760px;
+      margin: 38px 0 0 auto;
+      color: var(--ink);
+      font: 500 20px/1.55 var(--serif);
+    }
+    .pozsonyi-page .film { width: 100%; margin-inline: 0; }
+    .pozsonyi-page .film-bar,
+    .pozsonyi-page .film-stage { width: min(964px, 100%); margin-inline: auto; }
+    .pozsonyi-page .film-slide { flex: 0 0 auto; max-width: calc(100vw - 128px); }
+    .pozsonyi-page .film-slide img {
+      width: auto;
+      max-width: 100%;
+      height: min(68svh, calc(100svh - 260px));
+      max-height: none;
+      aspect-ratio: auto;
+      object-fit: contain;
+    }
+    .pozsonyi-page .film-slide figcaption { width: 0; min-width: 100%; }
+    @media (min-width: 901px) and (min-height: 760px) {
+      .pozsonyi-page .comparison-card,
+      .pozsonyi-page .comparison-slider-experiment { min-height: 0; padding: 0; }
+      .pozsonyi-page .comparison-slider-experiment .compare { height: auto; aspect-ratio: 4 / 3; }
+      .pozsonyi-page .identity { min-height: calc(100svh - var(--head)); }
+    }
+    @media (max-width: 900px) {
+      .pozsonyi-page .route-intro-grid { grid-template-columns: 1fr; }
+      .pozsonyi-page .route-copy p { max-width: none; }
+    }
+    @media (max-width: 680px) {
+      .pozsonyi-page .comparison-card,
+      .pozsonyi-page .comparison-slider-experiment { width: 100%; }
+      .pozsonyi-page .film-slide { flex-basis: calc(100vw - 30px); max-width: calc(100vw - 30px); }
+      .pozsonyi-page .film-slide img { width: 100%; height: auto; max-height: min(62svh, 560px); }
+      .pozsonyi-page .single-scene { width: 100%; }
+      .pozsonyi-page .single-scene img { width: 100%; height: auto; max-height: none; }
+      .pozsonyi-page .operational-note { width: min(100% - 30px, 900px); }
+    }
+</style>
+</head>
+<body id="top" class="pozsonyi-page">
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <figure class="hero-media">
+        <img src="/media/change/pozsonyi/opening-park-edge-hero.webp" alt="Illustrative golden-hour view of Pozsonyi út beside Szent István Park, with mature trees, a red trolleybus, cyclists and people on a pedestrian-priority street.">
+      </figure>
+      <div class="hero-copy">
+        <p class="eyebrow light">Street 02 · Budapest XIII</p>
+        <h1 id="page-title">Pozsonyi út</h1>
+        <p class="proposition">Make room for what works.</p>
+        <div class="hero-bottom"><span class="scroll-cue">Scroll the street ↓</span></div>
+      </div>
+    </section>
+
+    <section class="personal" aria-labelledby="personal-title">
+      <div class="wrap personal-grid">
+        <div>
+          <p class="eyebrow">Author's note</p>
+          <h2 id="personal-title">Pozsonyi út is the street I like best, and find hardest to walk down.</h2>
+        </div>
+        <div class="personal-copy">
+          <p class="lead">Both of those are true at the same time, and they are related.</p>
+          <p>It already has the things you cannot design into a street. A bakery. A grocer. Cafés with people actually sitting outside them. Trees old enough to close over the road. A park in the middle. Trolleybuses that turn up. It is a working high street.</p>
+          <p>Along approximately 911 metres of the project corridor, routine parking occupies much of the space between the frontages and the movement route. It is diagonal in the south, so the shopfronts sit behind a wall of bonnets. It is more often parallel around the park and farther north. The pavement is whatever is left once the cars have been dealt with.</p>
+          <div class="personal-note">This is not a construction plan. It is a visual proposition: move routine car storage elsewhere, then check that the trolleybus still runs, deliveries still reach the door, waste is still collected and residents can still get home.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="comparison-section" aria-labelledby="comparison-title">
+      <div class="wrap">
+        <div class="comparison-head">
+          <p class="eyebrow">The corner at Katona József utca</p>
+          <h2 id="comparison-title">The same street, with storage removed.</h2>
+          <p class="lead">The observed photograph and concept view use the same corner and a closely registered camera position. The photograph was taken on 27 July 2026. The future view is an illustrative reconstruction, not a surveyed design.</p>
+        </div>
+        <article class="comparison-card comparison-slider-experiment">
+          <figure>
+            <div class="compare" data-compare>
+              <img src="/media/change/pozsonyi/slider-concept.webp" alt="Illustrative reconstruction of the same Pozsonyi út corner without routine parking, showing a shared movement spine, active shopfronts, walking and cycling.">
+              <img class="today" src="/media/change/pozsonyi/slider-today.webp" alt="Observed view of Pozsonyi út at Katona József utca, with diagonal parking occupying both sides of the carriageway.">
+              <span class="compare-divider" aria-hidden="true"></span>
+              <label class="sr-only" for="compare-pozsonyi">Reveal today and concept views</label>
+              <input id="compare-pozsonyi" type="range" min="0" max="100" value="50" aria-label="Compare today's Pozsonyi út with the illustrative concept">
+            </div>
+            <figcaption class="compare-labels"><span>Today</span><span>Concept</span></figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section class="identity-intro" aria-labelledby="identity-title">
+      <div class="wide identity-intro-grid route-intro-grid">
+        <div class="route-copy">
+          <p class="eyebrow light">The corridor, north to south</p>
+          <h2 id="identity-title">One short street.<br>Three different roles.</h2>
+          <p>The corridor changes as you walk south. Not because three unrelated designs are applied to it, but because the church, the front doors, the park, the shops and the buildings already ask for different things.</p>
+        </div>
+        <figure class="route-rail">
+          <img src="/media/change/pozsonyi/corridor-editorial-rail.svg" alt="Simplified north-to-south Pozsonyi út corridor graphic showing Northern residential, Szent István Park and Southern high street between Garam utca and Szent István körút.">
+        </figure>
+      </div>
+    </section>
+
+    <section class="identity" id="northern-residential" aria-labelledby="northern-title">
+      <div class="wide">
+        <div class="identity-head">
+          <div>
+            <p class="identity-number">01 · Northern residential · Garam utca to Victor Hugo utca</p>
+            <h2 id="northern-title">The quieter end</h2>
+          </div>
+          <div class="identity-head-copy">
+            <p>Fewer shops, more front doors. The Hálaadás Reformed Church, Ruttkai Éva Park and mature tree canopy give this section a quieter, more residential character. It should not be turned into another entertainment destination.</p>
+            <p>The objective is simpler: more room for walking, sitting, bicycle and cargo-bike parking, accessible arrival and short residential servicing. The church and park thresholds remain clear. Temporary access is managed, rather than converted back into permanent parking.</p>
+          </div>
+        </div>
+        <figure class="single-scene">
+          <img src="/media/change/pozsonyi/northern-residential-church.webp" alt="Illustrative view of northern Pozsonyi út with the Hálaadás Reformed Church, mature trees, residential front doors, a trolleybus and bicycle parking.">
+          <figcaption>A calm residential street, with the mature canopy, church, trolleybus and front doors retained.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="identity" id="szent-istvan-park" aria-labelledby="park-title">
+      <div class="wide">
+        <div class="identity-head">
+          <div>
+            <p class="identity-number">02 · Szent István Park · Victor Hugo utca to Radnóti Miklós utca</p>
+            <h2 id="park-title">The civic centre</h2>
+          </div>
+          <div class="identity-head-copy">
+            <p>Szent István Park on one side, the Dunapark ensemble on the other, and trolleybus stops between them. This part of the street already has a strong identity. The design strategy is restraint.</p>
+            <p>The park gates, stops and front doors should connect directly. General parking, loading and visible waste infrastructure should not occupy the principal park threshold. Necessary functions move to positions beyond the main desire lines.</p>
+            <p>Sarki Fűszeres remains at Pozsonyi út 53–55, a neighbourhood destination at the park's northern edge. What this place needs is space to arrive on foot or by bicycle, and room to stand outside without blocking the walking route.</p>
+          </div>
+        </div>
+        <div class="film" data-film>
+          <div class="film-bar"><span class="film-count" aria-live="polite">Frame 1 of 2</span></div>
+          <div class="film-stage">
+            <button class="film-arrow" type="button" data-prev aria-label="Previous image">←</button>
+            <div class="film-track" tabindex="0" aria-label="Szent István Park image sequence">
+              <figure class="film-slide"><img src="/media/change/pozsonyi/park-dunapark-trolleybus.webp" alt="Illustrative view of Szent István Park beside Pozsonyi út, with mature canopy, a route 75 trolleybus, cycling and everyday park use."><figcaption>The trolleybus remains the public-transport backbone, while the park edge becomes easier to cross and inhabit.</figcaption></figure>
+              <figure class="film-slide"><img src="/media/change/pozsonyi/park-to-sarki-fuszeres.webp" alt="Illustrative view toward Sarki Fűszeres at the northern edge of Szent István Park, with walking, cycling and a trolleybus in the distance."><figcaption>A recognised neighbourhood destination remains part of the street's ordinary daily life.</figcaption></figure>
+            </div>
+            <button class="film-arrow" type="button" data-next aria-label="Next image">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="identity southern-high-street" id="southern-high-street" aria-labelledby="southern-title">
+      <div class="wide">
+        <div class="identity-head">
+          <div>
+            <p class="identity-number">03 · Southern high street · Radnóti Miklós utca to Szent István körút</p>
+            <h2 id="southern-title">The busiest part</h2>
+          </div>
+          <div class="identity-head-copy">
+            <p>This is where Pozsonyi út is busiest and where diagonal parking creates the strongest barrier. Cafés, food shops, specialist retail, residential entrances, deliveries, walking and the trolleybus all compete inside a narrow street.</p>
+            <p>Removing routine parking gives the frontages room to work. Terraces can move out of the clear walking route. People can reach shops and entrances without passing between parked cars. The movement spine remains open for trolleybuses, cycling, deliveries, emergency access, pick-up and drop-off and necessary local traffic.</p>
+          </div>
+        </div>
+        <figure class="single-scene">
+          <img src="/media/change/pozsonyi/southern-blue-hour.webp" alt="Illustrative blue-hour view of southern Pozsonyi út with lit shops and cafés, cyclists, a route 75 trolleybus and a compact shared shuttle.">
+          <figcaption>The high street remains busy after dark, with shops, cafés, walking, cycling and the trolleybus sharing one inhabited street.</figcaption>
+        </figure>
+        <p class="history-closing">The objective is not to give Pozsonyi út a new identity. It is to let its existing neighbourhood life occupy more of the street.</p>
+      </div>
+    </section>
+
+    <section class="identity operational-section" aria-labelledby="operations-title">
+      <div class="wide">
+        <div class="identity-head">
+          <div>
+            <p class="identity-number">The practical test</p>
+            <h2 id="operations-title">Yes, but where does the fridge go?</h2>
+          </div>
+          <p>To the door. Removing general parking does not remove access. A street that cannot accept a delivery, collect its waste, reach a resident with limited mobility or keep its trolleybus moving is not a better street.</p>
+        </div>
+        <div class="film" data-film>
+          <div class="film-bar"><span class="film-count" aria-live="polite">Frame 1 of 3</span></div>
+          <div class="film-stage">
+            <button class="film-arrow" type="button" data-prev aria-label="Previous image">←</button>
+            <div class="film-track" tabindex="0" aria-label="Pozsonyi út servicing image sequence">
+              <figure class="film-slide"><img src="/media/change/pozsonyi/northern-service-delivery.webp" alt="Illustrative bulky delivery from a temporary service pocket to a residential entrance on northern Pozsonyi út."><figcaption>A service vehicle uses a temporary pocket while a bulky item is moved directly to a residential entrance. The vehicle leaves when the task is complete. Exact locations and operating rules require a street survey and agreement with residents, businesses, BKK and service operators.</figcaption></figure>
+              <figure class="film-slide"><img src="/media/change/pozsonyi/southern-cargo-delivery.webp" alt="Illustrative cargo-bike delivery outside a hospitality frontage on a parking-free Pozsonyi út."><figcaption>Small and frequent consignments can arrive by cargo bike, reducing the need for vans to wait in the shared movement spine.</figcaption></figure>
+              <figure class="film-slide"><img src="/media/change/pozsonyi/northern-waste.webp" alt="Illustrative waste collection point on northern Pozsonyi út, positioned outside the clear walking and movement routes."><figcaption>Each residential catchment needs a workable collection solution. Container type, capacity, walking distance and the collection path must be tested before any location is fixed.</figcaption></figure>
+            </div>
+            <button class="film-arrow" type="button" data-next aria-label="Next image">→</button>
+          </div>
+        </div>
+        <p class="operational-note">Trolleybuses remain central to the street. Routes 75 and 76 serve the southern and park sections, while route 75 continues through the northern section. Stop positions, boarding space and swept paths require field verification. The concept requires cyclists and local vehicles to wait behind a stopped trolleybus rather than pass between the vehicle and boarding passengers.</p>
+      </div>
+    </section>
+
+    <section class="history" aria-labelledby="history-title">
+      <div class="wrap">
+        <div class="history-head">
+          <div>
+            <p class="eyebrow">History</p>
+            <h2 id="history-title">From Upper Quay to neighbourhood high street</h2>
+          </div>
+          <p>Pozsonyi út was shaped by Danube regulation, land reclamation, metropolitan housing, park planning and one of Budapest's most consequential wartime geographies. Its identity is architectural, social and memorial at the same time.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-row"><time>1903</time><strong>Felső rakpart</strong><p>Pozsonyi út received its present name on 7 April, replacing Felső rakpart, or Upper Quay.</p></article>
+          <article class="timeline-row"><time>1911</time><strong>Palatinus Houses</strong><p>Emil Vidor's Palatinus Houses established the southern gateway.</p></article>
+          <article class="timeline-row"><time>1928–1933</time><strong>Szent István Park</strong><p>Szent István Park was planned in 1928, with the final area plan approved in 1933. The park and surrounding apartment buildings formed a coordinated urban environment.</p></article>
+          <article class="timeline-row"><time>1930s</time><strong>Interwar modern Újlipótváros</strong><p>Much of the corridor's interwar residential fabric was completed. It is more accurately described as interwar modern Újlipótváros than as a uniform Bauhaus district.</p></article>
+          <article class="timeline-row"><time>1935–1936</time><strong>Dunapark Houses</strong><p>The Dunapark Houses combined modern rental housing, high-quality materials, services, roof terraces and commercial frontage beside the park.</p></article>
+          <article class="timeline-row"><time>1936–1940</time><strong>Hálaadás Reformed Church</strong><p>The Hálaadás Reformed Church added a distinct hybrid interwar civic landmark in the northern section.</p></article>
+          <article class="timeline-row"><time>1944</time><strong>The international ghetto</strong><p>Pozsonyi út and the surrounding streets became central to the international ghetto, a dispersed cluster of nominally protected houses. The area was not the fenced Pest ghetto. Protection was unstable, the buildings were severely overcrowded and residents remained exposed to Arrow Cross violence.</p></article>
+        </div>
+        <p class="history-closing">Pozsonyi út is not an architectural museum and does not need an imported identity. Its buildings, shops, park, transit and remembered lives already make it one of Budapest's strongest neighbourhood streets. The proposal is to give those existing strengths more room.</p>
+      </div>
+    </section>
+
+    <aside class="disclosure" aria-labelledby="disclosure-title">
+      <div class="wrap disclosure-grid">
+        <h2 id="disclosure-title">What is observed, and what is illustrative</h2>
+        <p>The current-condition slider uses an observed photograph taken on 27 July 2026. The future street views are illustrative concept images. The controlled project scope is approximately 910.8 metres, and the typical building-to-building width is estimated at 18 to 20 metres. The proposal is not a surveyed engineering design, traffic order or construction plan. Exact trolleybus geometry, access, loading, waste, accessibility, utilities and street dimensions require field survey and operator consultation.</p>
+      </div>
+    </aside>
+
+    <footer class="chapter-links">
+      <div class="wrap chapter-links-grid">
+        <a href="/change/falk-miksa"><small>Street 01</small><strong>Falk Miksa utca</strong></a>
+        <a href="/#katona-jozsef-utca"><small>Street 03</small><strong>Katona József utca</strong></a>
+        <a href="/change/three-streets"><small>Back to opening</small><strong>Three Streets</strong></a>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      document.querySelectorAll('[data-compare]').forEach((compare) => {
+        const input = compare.querySelector('input[type="range"]');
+        const update = () => compare.style.setProperty('--position', input.value + '%');
+        input.addEventListener('input', update);
+        update();
+      });
+
+      document.querySelectorAll('[data-film]').forEach((film) => {
+        const track = film.querySelector('.film-track');
+        const slides = [...film.querySelectorAll('.film-slide')];
+        const count = film.querySelector('.film-count');
+        const prev = film.querySelector('[data-prev]');
+        const next = film.querySelector('[data-next]');
+        const activeIndex = () => {
+          const trackLeft = track.getBoundingClientRect().left;
+          const paddingLeft = Number.parseFloat(getComputedStyle(track).paddingLeft) || 0;
+          return slides.reduce((nearest, slide, index) => {
+            const distance = Math.abs(slide.getBoundingClientRect().left - trackLeft - paddingLeft);
+            return distance < nearest.distance ? { index, distance } : nearest;
+          }, { index: 0, distance: Number.POSITIVE_INFINITY }).index;
+        };
+        const update = () => {
+          const index = activeIndex();
+          count.textContent = 'Frame ' + (index + 1) + ' of ' + slides.length;
+          prev.disabled = index === 0;
+          next.disabled = index === slides.length - 1;
+        };
+        const move = (delta) => {
+          const index = Math.max(0, Math.min(slides.length - 1, activeIndex() + delta));
+          const paddingLeft = Number.parseFloat(getComputedStyle(track).paddingLeft) || 0;
+          track.scrollTo({
+            left: slides[index].offsetLeft - paddingLeft,
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+          });
+        };
+        prev.addEventListener('click', () => move(-1));
+        next.addEventListener('click', () => move(1));
+        track.addEventListener('scroll', update, { passive: true });
+        track.addEventListener('keydown', (event) => {
+          if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
+          if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
+        });
+        window.addEventListener('resize', update, { passive: true });
+        update();
+      });
+    })();
+  </script>
+</body>
+</html>

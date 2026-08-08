@@ -3194,6 +3194,7 @@ body:has(.wlh-page) { overflow: hidden; }
 
 /* Falk Miksa utca, canonical v0.4 chapter */
 body:has(.falk-source-page) { overflow: hidden; }
+body:has(.pozsonyi-source-page) { overflow: hidden; }
 
 .falk-source-page {
   width: 100%;
@@ -3203,7 +3204,23 @@ body:has(.falk-source-page) { overflow: hidden; }
   background: #f3efe6;
 }
 
+.pozsonyi-source-page {
+  width: 100%;
+  height: 100dvh;
+  padding-top: 68px;
+  overflow: hidden;
+  background: #f3efe6;
+}
+
 .falk-source-frame {
+  display: block;
+  width: 100%;
+  height: calc(100dvh - 68px);
+  border: 0;
+  background: #f3efe6;
+}
+
+.pozsonyi-source-frame {
   display: block;
   width: 100%;
   height: calc(100dvh - 68px);
